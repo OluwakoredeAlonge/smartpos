@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - SmartPOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-gold': '#CDA434', // Elegant gold for accents
+                        'primary-dark': '#1F2937', // Deep gray-blue for backgrounds and text
+                        'accent-gold': '#F5E6CA', // Soft gold for highlights
+                        'accent-gray': '#F3F4F6', // Warm gray for backgrounds
+                        'secondary-blue': '#1D4ED8', // Retained blue for secondary elements
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-in': 'slideIn 0.3s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'zoom-in': 'zoomIn 0.6s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
+                        'expand': 'expand 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        zoomIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(205, 164, 52, 0.4)' },
+                            '50%': { boxShadow: '0 0 20px 10px rgba(205, 164, 52, 0)' },
+                        },
+                        expand: {
+                            '0%': { height: '0', opacity: '0' },
+                            '100%': { height: 'auto', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 100vw solid transparent;
+            border-bottom: 150px solid white;
+            z-index: 1;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(205, 164, 52, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
+        }
+        .img-hover:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+        .hamburger div {
+            transition: all 0.3s ease;
+        }
+        .hamburger.open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open .line2 {
+            opacity: 0;
+        }
+        .hamburger.open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .animated-card {
+            transition: all 0.3s ease;
+        }
+        .animated-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 25px rgba(205, 164, 52, 0.3);
+        }
+        .testimonial-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .testimonial-full {
+            display: none;
+            overflow: hidden;
+        }
+        .testimonial-full.open {
+            display: block;
+            animation: expand 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-accent-gray font-sans antialiased">
+
+    <!-- Sticky Navigation Bar -->
+  <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center h-16">
+                        <div class="h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden">
+                            <img src="asset/logo.png" alt="SmartPOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                    </a>
+                </div>
+                <!-- Menu Items -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                    </a>
+                    <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                        <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                    </a>
+                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                    </a>
+                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                    </a>
+                    <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                    </a>
+                </div>
+                <!-- Hamburger Menu -->
+                <div class="md:hidden flex items-center">
+                    <button class="hamburger focus:outline-none" aria-label="Toggle menu">
+                        <div class="line1 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line2 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line3 w-6 h-0.5 bg-gray-700"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
+                <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                </a>
+                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                </a>
+                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                </a>
+                <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                </a>
+                <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                    <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-20 overflow-hidden">
+        <div class="triangle"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">Hear from SmartPOS Users</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-fade-in">Join thousands of businesses transforming their operations with SmartPOS. Discover how we’ve helped save time, cut costs, and grow smarter.</p>
+            <a href="#submit-testimonial" class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover animate-fade-in">Share Your Story</a>
+        </div>
+    </section>
+
+    <!-- Combined Testimonial Submission and Display Section -->
+    <section id="submit-testimonial" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">Share Your Experience</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Testimonial Submission Form -->
+                <div class="bg-gradient-to-br from-accent-gold to-white p-8 rounded-xl shadow-md animated-card card-hover" data-aos="fade-right">
+                    <h3 class="text-xl font-semibold mb-6 text-primary-dark">Submit Your Testimonial</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-gold focus:border-primary-gold transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-gold focus:border-primary-gold transition">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-gold focus:border-primary-gold transition">
+                        </div>
+                        <div>
+                            <label for="testimonial" class="block text-sm font-medium text-gray-700">Your Testimonial</label>
+                            <textarea id="testimonial" rows="5" placeholder="Share your experience with SmartPOS" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-primary-gold focus:border-primary-gold transition"></textarea>
+                        </div>
+                        <div class="text-center">
+                           <button 
+    class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold transition shadow-lg opacity-50 cursor-not-allowed" 
+    disabled>
+  Coming Soon
+</button>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- Testimonials Display -->
+                <div data-aos="fade-left">
+                    <h3 class="text-xl font-semibold mb-6 text-primary-dark">What Our Customers Say</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover testimonial-card" data-testimonial-id="1" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="testimonial-full" data-testimonial-id="1">
+                                <p class="text-gray-600 mb-4">“As a school owner, preparing for the new academic session used to be stressful, 
+                especially managing book sales. SmartPOS has completely transformed this process. 
+                The receipt printing feature is a lifesaver — parents appreciate the professionalism, 
+                and I’m grateful to have discovered this app.”</p>
+                            </div>
+                            <div class="flex items-center">
+                               
+                                <div>
+                                    <h4 class="font-semibold text-primary-dark">Mrs. Oyekemi</h4>
+                                    <p class="text-sm text-gray-500">School Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 px-4 sm:px-6" data-aos="fade-up">
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl animated-card card-hover animate-fade-in">
+            <div class="text-center p-6 sm:p-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Join the SmartPOS Revolution</h2>
+                <p class="text-base md:text-lg mb-8 max-w-xl mx-auto">Experience 50% faster checkouts, 20% less inventory waste, and seamless e-commerce scalability. Start your free trial and transform your business in 48 hours.</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold text-base hover:bg-accent-gold transition btn-hover shadow-md">Start Free 7-Day Trial</a>
+                               </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full overflow-hidden mr-4">
+                            <img src="asset/logo.png" alt="SmartPOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                        <h3 class="text-xl font-bold">SmartPOS</h3>
+                    </div>
+                    <p class="text-sm">From chaos to control: Secure, automate, and thrive with SmartPOS. End theft, gain insights, and scale effortlessly.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:underline">Home</a></li>
+                        <li><a href="about.html" class="hover:underline">About</a></li>
+                        <li><a href="pricing.html" class="hover:underline">Pricing</a></li>
+                        <li><a href="testimonial.html" class="hover:underline">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">FAQ</a></li>
+                        <li><a href="#" class="hover:underline">Documentation</a></li>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
+                    <p class="text-sm mt-2">Phone: 09075148963 / 08140155828 (WhatsApp)</p>
+                    <p class="text-sm">Email: mickyalonge@gmail.com</p>
+                    <p class="text-sm">Portfolio: <a href="https://folio-two-blush.vercel.app/" class="hover:underline">https://folio-two-blush.vercel.app/</a></p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">🐦</a>
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">📘</a>
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">📸</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm border-t border-white/20 pt-4">
+                &copy; 2025 SmartPOS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu, and Testimonial Interactivity -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false, // Allow animations to repeat when scrolling back
+            mirror: true // Animate out when scrolling past
+        });
+    </script>
+    <script>
+          lucide.createIcons();
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('open');
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Testimonial Card Interactivity
+        document.querySelectorAll('.testimonial-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const testimonialId = this.getAttribute('data-testimonial-id');
+                const fullText = document.querySelector(`.testimonial-full[data-testimonial-id="${testimonialId}"]`);
+                fullText.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

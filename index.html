@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SmartPOS: End theft, automate your business, and gain full control. Multi-branch support, real-time alerts, and growth insights. Try free demo!">
+    <meta property="og:title" content="SmartPOS - From Chaos to Control">
+    <meta property="og:description" content="Automate, secure, and grow your business with SmartPOS. Multi-branch support and real-time insights.">
+    <meta property="og:image" content="https://yourdomain.com/asset/home.png">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:type" content="website">
+
+    <title>SmartPOS - From Chaos to Control: Secure, Automate, and Thrive</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-gold': '#CDA434', // Elegant gold for accents
+                        'primary-dark': '#1F2937', // Deep gray-blue for backgrounds and text
+                        'accent-gold': '#F5E6CA', // Soft gold for highlights
+                        'accent-gray': '#F3F4F6', // Warm gray for backgrounds
+                        'secondary-blue': '#1D4ED8', // Retained blue for secondary elements
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-in': 'slideIn 0.3s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'zoom-in': 'zoomIn 0.6s ease-out',
+                        'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        zoomIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 0 0 rgba(205, 164, 52, 0.4)' },
+                            '50%': { boxShadow: '0 0 20px 10px rgba(205, 164, 52, 0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 100vw solid transparent;
+            border-bottom: 150px solid white;
+            z-index: 1;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(205, 164, 52, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
+        }
+
+        .img-hover:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+
+        .hamburger div {
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.open .line2 {
+            opacity: 0;
+        }
+
+        .hamburger.open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .animated-card {
+            transition: all 0.3s ease;
+        }
+
+        .animated-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 25px rgba(205, 164, 52, 0.3);
+        }
+
+        /* Responsive Table Styles */
+        @media (max-width: 767px) {
+            .responsive-table thead {
+                display: none;
+            }
+            .responsive-table tr {
+                display: block;
+                margin-bottom: 1rem;
+            }
+            .responsive-table td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 1rem;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-accent-gray font-sans antialiased">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center h-16">
+                        <div class="h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden">
+                            <img src="asset/logo.png" alt="SmartPOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                    </a>
+                </div>
+                <!-- Menu Items -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                    </a>
+                    <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                        <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                    </a>
+                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                    </a>
+                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                    </a>
+                    <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                    </a>
+                </div>
+                <!-- Hamburger Menu -->
+                <div class="md:hidden flex items-center">
+                    <button class="hamburger focus:outline-none" aria-label="Toggle menu">
+                        <div class="line1 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line2 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line3 w-6 h-0.5 bg-gray-700"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
+                <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                </a>
+                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                </a>
+                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                </a>
+                <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                </a>
+                <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                    <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Triangular Designs and Gold Accents -->
+    <section class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-20 overflow-hidden">
+        <div class="triangle"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+                    <span class="text-accent-gold">End Theft, Automate Everything:</span>
+                    <span class="text-white">Reclaim Your Business with SmartPOS</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 animate-fade-in">Tired of unaccounted stock and unreliable staff? SmartPOS enforces accountability—no updates, no sales. Update remotely, get low-stock alerts, and manage multi-branches effortlessly. Experience 50% faster operations, zero theft, and real-time peace of mind. ROI in months—your business, transformed.</p>
+                <a href="#" class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover" aria-label="Schedule Free Demo">Schedule Free Demo Now</a>
+                <p class="mt-4 text-sm">Want to learn more? <a href="asset/proposal.pdf" class="text-accent-gold hover:underline" download>Download our Business Proposal PDF</a></p>
+            </div>
+            <div class="md:w-1/2 mt-8 md:mt-0 img-hover">
+                <img src="asset/home.png" alt="User Dashboard" class="rounded-lg shadow-xl w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- Addressing Loopholes Section with Animated Cards -->
+    <section id="loopholes" class="py-16 bg-accent-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">Addressing Key Loopholes in Traditional Business Operations</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">SmartPOS closes critical gaps that plague manual systems, ensuring security, efficiency, and growth. Discover how we eliminate vulnerabilities with innovative solutions.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-primary-gold text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Theft and Unauthorized Sales</h3>
+                    <p class="text-gray-600">Traditional systems allow sales without stock verification. SmartPOS locks sales until inventory is updated, with remote admin approvals—zero tolerance for theft.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-primary-gold text-4xl mb-4">📉</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Inventory Mismanagement</h3>
+                    <p class="text-gray-600">Manual tracking leads to shortages or overstock. Our real-time alerts and auto-sync prevent waste, reducing losses by up to 30%.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-primary-gold text-4xl mb-4">🕒</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Operational Inefficiencies</h3>
+                    <p class="text-gray-600">Slow processes and errors frustrate teams. SmartPOS streamlines workflows with intuitive interfaces, cutting processing time by 50%.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-primary-gold text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Lack of Insights</h3>
+                    <p class="text-gray-600">No real-time data means blind decisions. Gain actionable analytics on trends, sales, and performance to drive strategic growth.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="text-primary-gold text-4xl mb-4">🌐</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Scalability Challenges</h3>
+                    <p class="text-gray-600">Expanding branches is chaotic. Multi-branch support with centralized control makes growth seamless and secure.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="text-primary-gold text-4xl mb-4">🚨</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Compliance and Auditing Gaps</h3>
+                    <p class="text-gray-600">Untracked actions risk fraud. Role-based access and full audit logs ensure transparency and regulatory compliance.</p>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <p class="text-gray-600">Download our detailed proposal to see how SmartPOS can address these in your business: <a href="asset/proposal.pdf" class="text-primary-gold hover:underline font-semibold" download>Download PDF</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Streamlining Operations Section with Animated Cards -->
+    <section id="streamline" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">How SmartPOS Streamlines Operations for Owners and Attendants</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Empower your team with tools that make daily tasks effortless, while providing owners with oversight and insights. Experience enhanced productivity and peace of mind.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-6 text-primary-gold">For Business Owners</h3>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="100">
+                            <h4 class="text-xl font-semibold mb-2 text-primary-dark">Remote Management</h4>
+                            <p class="text-gray-600">Update stock, approve sales, and monitor branches from anywhere—freeing you to focus on growth.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="200">
+                            <h4 class="text-xl font-semibold mb-2 text-primary-dark">Advanced Analytics</h4>
+                            <p class="text-gray-600">Real-time reports on sales trends, low stock, and performance metrics for data-driven decisions.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="300">
+                            <h4 class="text-xl font-semibold mb-2 text-primary-dark">Security & Compliance</h4>
+                            <p class="text-gray-600">Audit logs and role controls ensure accountability, reducing risks and simplifying audits.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-6 text-primary-gold">For Attendants</h3>
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="100">
+                            <h4 class="text-xl font-semibold mb-2 text-primary-dark">Intuitive Sales Processing</h4>
+                            <p class="text-gray-600">Quick, error-free checkouts with auto-sync and alerts—50% faster service for happier customers.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="200">
+                            <h4 class="text-xl font-semibold mb-2 text-primary-dark">Real-Time Alerts</h4>
+                            <p class="text-gray-600">Low-stock notifications and easy inventory updates keep operations smooth without interruptions.</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="300">
+                            <h4 class="text-xl font-semibold mb-2 text-primary-dark">Simple Tools</h4>
+                            <p class="text-gray-600">Reprint invoices, view top sellers, and manage orders with a user-friendly interface—no training needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why SmartPOS Transforms Your Business Section -->
+    <section id="why-transform" class="py-16 bg-accent-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">Why SmartPOS Will Revolutionize How You Run Your Business</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Envision a theft-free operation where automation handles the heavy lifting. SmartPOS delivers unbreakable control, real-time alerts, and scalability for retail, pharmacies, restaurants, and more—turning worries into wins and losses into growth.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-primary-gold text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Automated Accountability</h3>
+                    <p class="text-gray-600">No stock updates mean no sales—end theft instantly with remote approvals and real-time tracking.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-primary-gold text-4xl mb-4">📦</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Proactive Inventory</h3>
+                    <p class="text-gray-600">Low-stock alerts notify admins and attendants early—prevent shortages, reduce waste by 20%, and keep profits flowing.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-primary-gold text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Remote Freedom</h3>
+                    <p class="text-gray-600">Update stock from home or anywhere with internet—step away for weeks without worry.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="text-primary-gold text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Ironclad Security</h3>
+                    <p class="text-gray-600">Role-based access and audit logs ensure every action is tracked—protect your business like never before.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="text-primary-gold text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Growth-Fueling Insights</h3>
+                    <p class="text-gray-600">Real-time sales trends and reports empower decisions that skyrocket your success.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="text-primary-gold text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-semibold mb-2 text-primary-dark">Effortless Scalability</h3>
+                    <p class="text-gray-600">Multi-branch support and easy expansions—grow your empire with total control and zero hassle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits of Adopting SmartPOS -->
+    <section id="benefits" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">The Life-Changing Benefits of SmartPOS</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Embrace a system that not only solves problems but inspires confidence. From theft elimination to remote mastery, SmartPOS delivers freedom, efficiency, and growth—ROI in 3-6 months awaits.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Skyrocket Efficiency</h3>
+                    <p class="text-gray-600">Automation frees your team for what matters—50% faster sales and happier customers.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Banish Manual Errors</h3>
+                    <p class="text-gray-600">No more handwritten headaches—real-time updates ensure accuracy and accountability.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Slash Costs & Losses</h3>
+                    <p class="text-gray-600">Prevent theft and waste with smart alerts—shorter queues mean more sales and 20% savings.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Unlock Smart Decisions</h3>
+                    <p class="text-gray-600">Insights on trends and performance guide you to unprecedented profitability.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Delight Your Customers</h3>
+                    <p class="text-gray-600">Quick, professional service builds loyalty and turns visitors into advocates.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Scale with Confidence</h3>
+                    <p class="text-gray-600">Add branches or go online seamlessly—secure, flexible growth on your terms. Our error-free, detailed system is straightforward, eliminating confusion and support needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web-Based POS Advantages -->
+    <section id="advantages" class="py-16 bg-accent-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">Why SmartPOS Outshines Traditional Systems</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Leave behind rigid, vulnerable setups. SmartPOS offers freedom, precision, and power—empowering you to thrive in a modern world.</p>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-300 rounded-lg shadow-md responsive-table">
+                    <thead class="bg-primary-gold text-primary-dark">
+                        <tr>
+                            <th class="py-3 px-4 text-left">Feature</th>
+                            <th class="py-3 px-4 text-left">Traditional POS</th>
+                            <th class="py-3 px-4 text-left">SmartPOS Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t">
+                            <td class="py-3 px-4" data-label="Feature">Accessibility</td>
+                            <td class="py-3 px-4" data-label="Traditional POS">Tied to one device</td>
+                            <td class="py-3 px-4" data-label="SmartPOS Advantage">Anywhere via browser—phone-friendly for remote updates</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-3 px-4" data-label="Feature">Setup & Cost</td>
+                            <td class="py-3 px-4" data-label="Traditional POS">Expensive hardware, ongoing maintenance</td>
+                            <td class="py-3 px-4" data-label="SmartPOS Advantage">Affordable cloud—minimal setup, no extras needed</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-3 px-4" data-label="Feature">Inventory Tracking</td>
+                            <td class="py-3 px-4" data-label="Traditional POS">Manual, prone to theft/errors</td>
+                            <td class="py-3 px-4" data-label="SmartPOS Advantage">Automated alerts, real-time sync—no sales without stock</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-3 px-4" data-label="Feature">Sales & Analytics</td>
+                            <td class="py-3 px-4" data-label="Traditional POS">Basic, outdated reports</td>
+                            <td class="py-3 px-4" data-label="SmartPOS Advantage">Instant insights, exportable data for growth</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-3 px-4" data-label="Feature">Scalability</td>
+                            <td class="py-3 px-4" data-label="Traditional POS">Difficult for multiple sites</td>
+                            <td class="py-3 px-4" data-label="SmartPOS Advantage">Effortless multi-branch support and expansions</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-3 px-4" data-label="Feature">Security</td>
+                            <td class="py-3 px-4" data-label="Traditional POS">Vulnerable local data</td>
+                            <td class="py-3 px-4" data-label="SmartPOS Advantage">Encrypted, audited—total accountability</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="py-3 px-4" data-label="Feature">Flexibility</td>
+                            <td class="py-3 px-4" data-label="Traditional POS">On-site only, complex</td>
+                            <td class="py-3 px-4" data-label="SmartPOS Advantage">Remote management, easy for all users</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-center text-gray-600 mt-8">Choose SmartPOS to lead, not lag—unlock efficiency, security, and inspiration today.</p>
+        </div>
+    </section>
+
+    <!-- Future Expansion: From POS to Full E-Commerce -->
+    <section id="future-expansion" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">Scale to New Heights: From POS to Thriving Online Presence</h2>
+            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">SmartPOS isn't just a tool—it's your growth partner. Even without an online presence, leverage our included hosting and domain to build a professional website effortlessly. Rank on Google with built-in SEO tools, attract enquiries, and outpace rivals—all at zero extra cost for hosting or domain, with discounts for loyal customers.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Vibrant Online Store</h3>
+                    <p class="text-gray-600">Launch a seamless site with synced inventory—reach more customers without the hassle. Attract enquiries and drive informed decisions about your brand.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Delivery & Pickup Options</h3>
+                    <p class="text-gray-600">Offer doorstep delivery, click-and-collect, or in-store pickup for convenience.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Customer Accounts & Loyalty</h3>
+                    <p class="text-gray-600">Reward repeats with discounts, track history, and personalize service.</p>
+                </div>
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md card-hover animated-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-dark">Cross-Channel Analytics</h3>
+                    <p class="text-gray-600">Combine in-store and online data for full revenue visibility.</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-600 mt-8 max-w-3xl mx-auto">Grow boldly—SmartPOS makes expansion exciting and effortless, turning your business into a digital powerhouse.</p>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard Preview -->
+    <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl card-hover animate-fade-in">
+            <div class="p-6 sm:p-8">
+                <h2 class="text-3xl font-bold text-center mb-12 animate-fade-in">Intuitive Dashboards: Power in Your Hands</h2>
+                <p class="text-center mb-8">Admins gain total control; attendants thrive with simplicity. Save time, reduce stress, and inspire your team.</p>
+
+                <!-- Dashboard Tabs -->
+                <div class="flex justify-center mb-8 space-x-0">
+                    <button id="admin-tab" class="px-6 py-3 bg-white text-primary-gold rounded-l-full font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none">Admin Dashboard</button>
+                    <button id="attendant-tab" class="px-6 py-3 bg-transparent text-white border-2 border-white rounded-r-full font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none">Attendant Dashboard</button>
+                </div>
+
+                <!-- Dashboard Content -->
+                <div id="dashboard-content">
+                    <!-- Admin Dashboard Content -->
+                    <div id="admin-content" class="dashboard-panel block">
+                        <!-- Sub-section Buttons -->
+                        <div class="flex flex-wrap justify-center mb-6 space-x-2 space-y-2 md:space-y-0">
+                            <button data-dashboard="admin" data-section="admin-overview" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Admin Overview</button>
+                            <button data-dashboard="admin" data-section="products-overview" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Products Overview</button>
+                            <button data-dashboard="admin" data-section="orders" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Orders</button>
+                            <button data-dashboard="admin" data-section="sales-history" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Sales History</button>
+                            <button data-dashboard="admin" data-section="low-stock" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Low Stock</button>
+                            <button data-dashboard="admin" data-section="top-transactions" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Top Selling</button>
+                        </div>
+
+                        <!-- Preview Area -->
+                        <div class="flex flex-col md:flex-row items-center justify-center">
+                            <div class="w-full md:w-2/3 relative overflow-hidden img-hover">
+                                <img id="admin-preview-img" src="asset/admin-overview.png" alt="Admin Dashboard Preview" class="rounded-lg shadow-xl w-full transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-1">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center">
+                                    <span class="text-white text-lg opacity-0 hover:opacity-100 transition-opacity duration-300">Zoom In</span>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/3 mt-8 md:mt-0 md:ml-8 text-center md:text-left">
+                                <p id="admin-preview-desc" class="text-base md:text-lg mb-4 animate-fade-in">Command your empire: Real-time metrics, low-stock alerts, and multi-branch oversight—empower decisions that inspire growth.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Attendant Dashboard Content -->
+                    <div id="attendant-content" class="dashboard-panel hidden">
+                        <!-- Sub-section Buttons -->
+                        <div class="flex flex-wrap justify-center mb-6 space-x-2 space-y-2 md:space-y-0">
+                            <button data-dashboard="attendant" data-section="attendant-overview" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Attendant Overview</button>
+                            <button data-dashboard="attendant" data-section="attendant-orders" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Orders</button>
+                            <button data-dashboard="attendant" data-section="attendant-processales" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Process Sales</button>
+                            <button data-dashboard="attendant" data-section="attendant-products" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Products</button>
+                            <button data-dashboard="attendant" data-section="attendant-reprint-invoice" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Reprint Invoice</button>
+                            <button data-dashboard="attendant" data-section="attendant-topselling" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Top Selling</button>
+                            <button data-dashboard="attendant" data-section="attendant-lowstockproducts" class="section-btn px-4 py-2 m-1 bg-white text-primary-gold rounded-full text-sm font-semibold transition-all duration-300 ease-in-out transform hover:scale-110 hover:shadow-lg hover:rotate-3 focus:outline-none">Low Stock</button>
+                        </div>
+
+                        <!-- Preview Area -->
+                        <div class="flex flex-col md:flex-row items-center justify-center">
+                            <div class="w-full md:w-2/3 relative overflow-hidden img-hover">
+                                <img id="attendant-preview-img" src="asset/attendant-overview.png" alt="Attendant Dashboard Preview" class="rounded-lg shadow-xl w-full transition-all duration-500 ease-in-out transform hover:scale-105 hover:rotate-1">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-opacity duration-300 flex items-center justify-center">
+                                    <span class="text-white text-lg opacity-0 hover:opacity-100 transition-opacity duration-300">Zoom In</span>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/3 mt-8 md:mt-0 md:ml-8 text-center md:text-left">
+                                <p id="attendant-preview-desc" class="text-base md:text-lg mb-4 animate-fade-in">Simple yet powerful: Process sales effortlessly, get instant alerts, and thrive—no tech skills required.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements & Implementation Plan -->
+    <section id="requirements-implementation" class="py-16 bg-accent-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">Seamless Start: Requirements & Quick Launch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-up">
+                    <h3 class="text-2xl font-semibold mb-6 text-primary-gold">Minimal Requirements for Maximum Impact</h3>
+                    <ul class="space-y-4 text-gray-600">
+                        <li><strong>Hardware:</strong> Any PC/laptop with 4GB RAM (8GB ideal)—or even an Android phone with a browser.</li>
+                        <li><strong>Internet:</strong> Stable connection (10-30 Mbps); low data use under 3GB/month.</li>
+                        <li><strong>Printer:</strong> Thermal for crisp receipts—elevate your professionalism.</li>
+                    </ul>
+                    <p class="mt-6">Designed for accessibility—no barriers to your success.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-2xl font-semibold mb-6 text-primary-gold">Launch in 2 Days: Your Path to Transformation</h3>
+                    <ol class="space-y-4 text-gray-600 list-decimal pl-6">
+                        <li><strong>Sign Up (1 Hour):</strong> Create account, set details, add categories—start strong.</li>
+                        <li><strong>Inventory Load (1-2 Hours):</strong> Bulk import via Excel—skip manual entry, sync instantly.</li>
+                        <li><strong>Train & Test (1 Hour):</strong> Role assignments and guided sessions—easy for all.</li>
+                        <li><strong>Go Live (1 Hour):</strong> Test runs, fine-tune—watch accountability take hold.</li>
+                        <li><strong>Optimize (Ongoing):</strong> Use insights to refine and grow with 30-day support.</li>
+                    </ol>
+                    <p class="mt-6">Free migration and maintenance—your journey to freedom begins now.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section (Trial Focus) -->
+    <section id="how-it-works" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-center mb-8 text-primary-dark animate-fade-in">Embark on Your Transformation in 3 Steps</h2>
+            <p class="text-center text-gray-600 mb-6 text-sm animate-fade-in">Dive into SmartPOS with a 7-day free trial—witness automation, accountability, and growth firsthand.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-lg shadow-sm card-hover animated-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-primary-gold text-3xl mb-3">1</div>
+                    <h3 class="text-lg font-semibold mb-2 text-primary-dark">Book Your Free Demo</h3>
+                    <p class="text-gray-600 text-sm">See tailored magic: Automation ending theft, alerts inspiring action.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-lg shadow-sm card-hover animated-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-primary-gold text-3xl mb-3">2</div>
+                    <h3 class="text-lg font-semibold mb-2 text-primary-dark">Launch Your 7-Day Trial</h3>
+                    <p class="text-gray-600 text-sm">Explore fully: Secure sales, remote control—no commitment.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-lg shadow-sm card-hover animated-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-primary-gold text-3xl mb-3">3</div>
+                    <h3 class="text-lg font-semibold mb-2 text-primary-dark">Thrive or Move On</h3>
+                    <p class="text-gray-600 text-sm">Adopt seamlessly or exit easily—your success, your choice.</p>
+                </div>
+            </div>
+            <div class="text-center mt-6">
+                <a href="#" class="bg-primary-gold text-primary-dark px-6 py-2 rounded-full font-semibold hover:bg-accent-gold transition btn-hover" aria-label="Schedule Demo">Start Your Free Demo Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl card-hover animate-fade-in">
+            <div class="text-center p-6 sm:p-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Break Free from Limitations—Embrace SmartPOS Today</h2>
+                <p class="text-base md:text-lg mb-8 max-w-xl mx-auto">Every lost item is opportunity stolen. Claim yours back with automation, security, and growth. Schedule your demo—transform in hours, thrive forever.</p>
+                <a href="#" class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover" aria-label="Schedule Free Demo">Schedule Free Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full overflow-hidden mr-4">
+                            <img src="asset/logo.png" alt="SmartPOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                        <h3 class="text-xl font-bold">SmartPOS</h3>
+                    </div>
+                    <p class="text-sm">From chaos to control: Secure, automate, and thrive with SmartPOS. End theft, gain insights, and scale effortlessly.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:underline">Home</a></li>
+                        <li><a href="about.html" class="hover:underline">About</a></li>
+                        <li><a href="pricing.html" class="hover:underline">Pricing</a></li>
+                        <li><a href="testimonial.html" class="hover:underline">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">FAQ</a></li>
+                        <li><a href="#" class="hover:underline">Documentation</a></li>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
+                    <p class="text-sm mt-2">Phone: 09075148963 / 08140155828 (WhatsApp)</p>
+                    <p class="text-sm">Email: mickyalonge@gmail.com</p>
+                    <p class="text-sm">Portfolio: <a href="https://folio-two-blush.vercel.app/" class="hover:underline">https://folio-two-blush.vercel.app/</a></p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">🐦</a>
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">📘</a>
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">📸</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm border-t border-white/20 pt-4">
+                &copy; 2025 SmartPOS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false, // Allow animations to repeat when scrolling back
+            mirror: true // Animate out when scrolling past
+        });
+    </script>
+    <script>
+        lucide.createIcons();
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            this.classList.toggle('open');
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // Dashboard Tab Switching
+        const adminTab = document.getElementById('admin-tab');
+        const attendantTab = document.getElementById('attendant-tab');
+        const adminContent = document.getElementById('admin-content');
+        const attendantContent = document.getElementById('attendant-content');
+
+        adminTab.addEventListener('click', () => {
+            adminTab.classList.add('bg-white', 'text-primary-gold');
+            adminTab.classList.remove('bg-transparent', 'text-white', 'border-2', 'border-white');
+            attendantTab.classList.add('bg-transparent', 'text-white', 'border-2', 'border-white');
+            attendantTab.classList.remove('bg-white', 'text-primary-gold');
+            adminContent.classList.remove('hidden');
+            adminContent.classList.add('block', 'animate-slide-up');
+            attendantContent.classList.add('hidden');
+            attendantContent.classList.remove('animate-slide-up');
+        });
+
+        attendantTab.addEventListener('click', () => {
+            attendantTab.classList.add('bg-white', 'text-primary-gold');
+            attendantTab.classList.remove('bg-transparent', 'text-white', 'border-2', 'border-white');
+            adminTab.classList.add('bg-transparent', 'text-white', 'border-2', 'border-white');
+            adminTab.classList.remove('bg-white', 'text-primary-gold');
+            attendantContent.classList.remove('hidden');
+            attendantContent.classList.add('block', 'animate-slide-up');
+            adminContent.classList.add('hidden');
+            adminContent.classList.remove('animate-slide-up');
+        });
+
+        // Section Switching Logic
+        const sectionButtons = document.querySelectorAll('.section-btn');
+        const sections = {
+            admin: {
+                'admin-overview': { img: 'asset/admin-overview.png', desc: 'Gain a comprehensive view of your business operations with real-time metrics and insights.' },
+                'orders': { img: 'asset/admin-orders.png', desc: 'Easily manage and track all customer orders with real-time updates and detailed order insights.' },
+                'products-overview': { img: 'asset/admin-products.png', desc: 'Get a comprehensive overview of all products, including stock levels and performance metrics.' },
+                'sales-history': { img: 'asset/admin-sales.png', desc: 'Review detailed sales history with filters for dates, products, and attendants.' },
+                'low-stock': { img: 'asset/admin-lowstock.png', desc: 'Monitor items running low on stock with automated alerts and quick reorder options.' },
+                'top-transactions': { img: 'asset/admin-topselling.png', desc: 'Analyze top-selling products and transactions to identify trends and optimize operations.' }
+            },
+            attendant: {
+                'attendant-overview': { img: 'asset/attendant-overview.png', desc: 'Get a quick overview of your daily tasks and performance metrics as an attendant.' },
+                'attendant-orders': { img: 'asset/attendant-orders.png', desc: 'Manage and track customer orders efficiently with real-time updates.' },
+                'attendant-processales': { img: 'asset/attendant-processSales.png', desc: 'Process sales quickly with streamlined tools designed for attendants.' },
+                'attendant-products': { img: 'asset/attendant-products.png', desc: 'View essential product details tailored for quick attendant reference.' },
+                'attendant-reprint-invoice': { img: 'asset/attendant-reprintInvoice.png', desc: 'Easily reprint invoices for customers with a simple interface.' },
+                'attendant-topselling': { img: 'asset/attendant-topselling.png', desc: 'Review top-selling products for the shift to track performance.' },
+                'attendant-lowstockproducts': { img: 'asset/admin-lowstock.png', desc: 'See low-stock alerts relevant to daily operations without admin-level details.' }
+            }
+        };
+
+        sectionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const dashboard = button.dataset.dashboard;
+                const section = button.dataset.section;
+                const imgElement = document.getElementById(`${dashboard}-preview-img`);
+                const descElement = document.getElementById(`${dashboard}-preview-desc`);
+
+                // Update with fade
+                imgElement.classList.add('opacity-0');
+                setTimeout(() => {
+                    imgElement.src = sections[dashboard][section].img;
+                    descElement.textContent = sections[dashboard][section].desc;
+                    imgElement.classList.remove('opacity-0');
+                    imgElement.classList.add('animate-fade-in', 'transform', 'scale-105', 'rotate-1');
+                    setTimeout(() => imgElement.classList.remove('scale-105', 'rotate-1'), 500);
+                }, 300);
+
+                // Active state
+                sectionButtons.forEach(btn => btn.classList.remove('bg-primary-gold', 'text-primary-dark', 'scale-110'));
+                button.classList.add('bg-primary-gold', 'text-primary-dark', 'scale-110');
+            });
+        });
+
+        // Auto-select first
+        document.querySelector('[data-section="admin-overview"][data-dashboard="admin"]').click();
+        document.querySelector('[data-section="attendant-overview"][data-dashboard="attendant"]').click();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SmartPOS",
+      "url": "https://yourdomain.com",
+      "description": "SmartPOS automates your business, prevents theft, and provides real-time analytics for growth.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "NGN",
+        "url": "https://yourdomain.com"
+      }
+    }
+    </script>
+
+</body>
+
+</html>

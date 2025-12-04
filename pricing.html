@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing - SmartPOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary-gold': '#CDA434', // Elegant gold for accents
+              'primary-dark': '#1F2937', // Deep gray-blue for backgrounds and text
+              'accent-gold': '#F5E6CA', // Soft gold for highlights
+              'accent-gray': '#F3F4F6', // Warm gray for backgrounds
+              'secondary-blue': '#1D4ED8', // Retained blue for secondary elements
+            },
+            fontFamily: {
+              sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out',
+              'slide-in': 'slideIn 0.3s ease-out',
+              'slide-up': 'slideUp 0.5s ease-out',
+              'zoom-in': 'zoomIn 0.6s ease-out',
+              'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              slideIn: {
+                '0%': { transform: 'translateX(100%)' },
+                '100%': { transform: 'translateX(0)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(100%)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              zoomIn: {
+                '0%': { opacity: '0', transform: 'scale(0.9)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              },
+              pulseGlow: {
+                '0%, 100%': { boxShadow: '0 0 0 0 rgba(205, 164, 52, 0.4)' },
+                '50%': { boxShadow: '0 0 20px 10px rgba(205, 164, 52, 0)' },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .triangle {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-left: 100vw solid transparent;
+        border-bottom: 150px solid white;
+        z-index: 1;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 15px -3px rgba(205, 164, 52, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+      .btn-hover:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
+      }
+      .img-hover:hover {
+        transform: scale(1.03);
+        transition: transform 0.3s ease;
+      }
+      .hamburger div {
+        transition: all 0.3s ease;
+      }
+      .hamburger.open .line1 {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .hamburger.open .line2 {
+        opacity: 0;
+      }
+      .hamburger.open .line3 {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+      .animated-card {
+        transition: all 0.3s ease;
+      }
+      .animated-card:hover {
+        transform: scale(1.05) rotate(1deg);
+        box-shadow: 0 15px 25px rgba(205, 164, 52, 0.3);
+      }
+      .faq-item {
+        transition: all 0.3s ease;
+      }
+      .faq-item.open .faq-answer {
+        display: block;
+        opacity: 1;
+        max-height: 200px;
+      }
+      .faq-answer {
+        display: none;
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+      .faq-toggle {
+        cursor: pointer;
+      }
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+      .toggle-switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+      input:checked + .slider {
+        background-color: #CDA434;
+      }
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+      .pricing-card {
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+  <body class="bg-accent-gray font-sans antialiased">
+    <!-- Sticky Navigation Bar -->
+   <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center h-16">
+                        <div class="h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden">
+                            <img src="asset/logo.png" alt="SmartPOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                    </a>
+                </div>
+                <!-- Menu Items -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                    </a>
+                    <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                        <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                    </a>
+                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                    </a>
+                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                    </a>
+                    <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                    </a>
+                </div>
+                <!-- Hamburger Menu -->
+                <div class="md:hidden flex items-center">
+                    <button class="hamburger focus:outline-none" aria-label="Toggle menu">
+                        <div class="line1 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line2 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line3 w-6 h-0.5 bg-gray-700"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
+                <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                </a>
+                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                </a>
+                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                </a>
+                <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                </a>
+                <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                    <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-20 overflow-hidden"
+    >
+      <div class="triangle"></div>
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
+      >
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
+          SmartPOS Subscription Plans
+        </h1>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-fade-in">
+          Run your business smarter with our all-in-one POS solution.
+          <span class="font-semibold underline"
+            >Each subscription includes multi-branch support</span
+          >. Make a payment and add branches in the register branch view. With
+          affordable plans, businesses cut checkout times by up to 50%, reduce
+          inventory waste by 20%, and recover investment in under 6
+          months—unlike rigid competitors, our customizable workflows adapt to
+          your needs.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a
+            href="#plans"
+            class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover animate-fade-in"
+            >Explore Plans</a
+          >
+          <a
+            href="#faq"
+            class="border-2 border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-primary-dark transition btn-hover animate-fade-in"
+            >FAQs</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Billing Toggle -->
+    <section class="py-6 bg-white" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-center items-center">
+          <span class="text-gray-600 mr-4 font-medium">6 Months</span>
+          <label class="toggle-switch">
+            <input type="checkbox" id="billing-toggle" />
+            <span class="slider"></span>
+          </label>
+          <span class="text-gray-600 ml-4 font-medium"
+            >1 Year
+            <span class="text-primary-gold font-semibold">(Save 5%)</span></span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Our Pricing Delivers Maximum Value Section -->
+    <section class="py-16 bg-accent-gray">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in"
+        >
+          Why Our Pricing Delivers Maximum Value
+        </h2>
+        <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+          We believe in transparency and long-term affordability. SmartPOS isn't
+          just a tool—it's a growth platform that pays for itself quickly
+          through efficiency gains, while positioning your business for scalable
+          success. No hidden fees, no surprises.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="100">
+            <div class="text-primary-gold text-4xl mb-4">💰</div>
+            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Affordable & Transparent</h3>
+            <p class="text-gray-600">
+              Year 1 covers subscription, setup, domain, and hosting. From Year
+              2, only renew domain/hosting plus a fixed ₦30,000 maintenance fee
+              for updates and support.
+            </p>
+          </div>
+          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="200">
+            <div class="text-primary-gold text-4xl mb-4">📈</div>
+            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Quick ROI</h3>
+            <p class="text-gray-600">
+              Businesses recover investment in 3-6 months with 50% faster
+              checkouts, 20% less waste, and data-driven insights.
+            </p>
+          </div>
+          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="300">
+            <div class="text-primary-gold text-4xl mb-4">🌟</div>
+            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Scalable Growth</h3>
+            <p class="text-gray-600">
+              Customizable workflows adapt to your needs, supporting
+              multi-branch expansion and future e-commerce without starting from
+              scratch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Plans Section -->
+    <section id="plans" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-4xl md:text-5xl font-bold text-center mb-4 text-primary-dark animate-fade-in"
+        >
+          Your Subscription
+        </h2>
+        <p
+          class="text-center text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto animate-fade-in"
+        >
+          Each plan includes multi-branch support. Below are the options, with
+          your current plan highlighted. Year 1 includes subscription, setup,
+          domain, and hosting. From Year 2, renew only domain, hosting, and a
+          fixed maintenance fee.
+        </p>
+        <div class="mb-12" data-aos="fade-up">
+          <h3
+            class="text-2xl font-semibold text-center mb-6 text-primary-dark animate-fade-in"
+          >
+            Try SmartPOS Free for 7 Days!
+          </h3>
+          <div
+            class="bg-gradient-to-br from-accent-gold to-white p-8 rounded-xl shadow-md max-w-lg mx-auto animated-card card-hover" data-aos="zoom-in"
+          >
+            <h3 class="text-2xl font-bold mb-4 text-primary-dark">Free Trial</h3>
+            <p class="text-gray-600 mb-6">Ideal for trying out Smart-POS.</p>
+            <p class="text-4xl font-bold mb-2 text-primary-gold">₦0.00</p>
+            <p class="text-gray-500 mb-8">for 7 days (multi-branch)</p>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Full POS features
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Limited attendants
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Limited admins
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Basic analytics
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Basic support
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="pricing-card bg-gradient-to-br from-accent-gold to-white p-8 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="100"
+            data-plan="Basic"
+          >
+            <h3 class="text-2xl font-bold mb-4 text-primary-dark">Basic</h3>
+            <p class="text-gray-600 mb-6">Perfect for small businesses.</p>
+            <p class="text-4xl font-bold mb-2 text-primary-dark six-month-price">
+              ₦90,000
+            </p>
+            <p
+              class="text-4xl font-bold mb-2 text-primary-dark one-year-price hidden"
+            >
+              ₦171,000
+            </p>
+            <p class="text-lg font-medium text-gray-600 mb-2 monthly-price">
+              ₦15,000 / month
+            </p>
+            <p
+              class="text-lg font-medium text-gray-600 mb-2 monthly-price-yearly hidden"
+            >
+              ₦14,250 / month
+            </p>
+            <p class="text-gray-500 mb-4 six-month-price">
+              for 180 days (multi-branch)
+            </p>
+            <p class="text-gray-500 mb-4 one-year-price hidden">
+              for 365 days (multi-branch)
+            </p>
+            <p class="text-sm text-gray-500 mb-8">
+              Year 1 includes setup + domain & hosting. Renewals from Year 2:
+              domain, hosting, and ₦30,000 maintenance fee.
+            </p>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Full POS features
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Multi-branch support
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Bulk product uploading via spreadsheets
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Sales history charts
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Configurable attendants
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Configurable admins
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Basic analytics
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Email & Chat support
+              </li>
+            </ul>
+          </div>
+          <div
+            class="pricing-card bg-gradient-to-r from-primary-dark to-secondary-blue p-8 rounded-xl shadow-lg text-white scale-105 animated-card card-hover" data-aos="zoom-in" data-aos-delay="200"
+            data-plan="Standard"
+          >
+            <h3 class="text-2xl font-bold mb-4">Standard</h3>
+            <p class="mb-6">Great for growing teams.</p>
+            <p class="text-4xl font-bold mb-2 six-month-price">₦150,000</p>
+            <p class="text-4xl font-bold mb-2 one-year-price hidden">
+              ₦285,000
+            </p>
+            <p class="text-lg font-medium mb-2 monthly-price">
+              ₦25,000 / month
+            </p>
+            <p
+              class="text-lg font-medium mb-2 monthly-price-yearly hidden"
+            >
+              ₦23,750 / month
+            </p>
+            <p class="mb-4 six-month-price">for 180 days (multi-branch)</p>
+            <p class="mb-4 one-year-price hidden">
+              for 365 days (multi-branch)
+            </p>
+            <p class="text-sm mb-8">
+              Year 1 includes setup + domain & hosting. Renewals from Year 2:
+              domain, hosting, and ₦30,000 maintenance fee.
+            </p>
+            <ul class="space-y-3">
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Full POS features
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Multi-branch support
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Bulk product uploading via spreadsheets
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Sales history charts
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Configurable attendants
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Configurable admins
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Advanced analytics
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-white mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Priority support
+              </li>
+            </ul>
+          </div>
+          <div
+            class="pricing-card bg-gradient-to-br from-accent-gold to-white p-8 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="300"
+            data-plan="Premium"
+          >
+            <h3 class="text-2xl font-bold mb-4 text-primary-dark">Premium</h3>
+            <p class="text-gray-600 mb-6">Unlimited users, full power.</p>
+            <p class="text-4xl font-bold mb-2 text-primary-dark six-month-price">
+              ₦240,000
+            </p>
+            <p
+              class="text-4xl font-bold mb-2 text-primary-dark one-year-price hidden"
+            >
+              ₦456,000
+            </p>
+            <p class="text-lg font-medium text-gray-600 mb-2 monthly-price">
+              ₦40,000 / month
+            </p>
+            <p
+              class="text-lg font-medium text-gray-600 mb-2 monthly-price-yearly hidden"
+            >
+              ₦38,000 / month
+            </p>
+            <p class="text-gray-500 mb-4 six-month-price">
+              for 180 days (multi-branch)
+            </p>
+            <p class="text-gray-500 mb-4 one-year-price hidden">
+              for 365 days (multi-branch)
+            </p>
+            <p class="text-sm text-gray-500 mb-8">
+              Year 1 includes setup + domain & hosting. Renewals from Year 2:
+              domain, hosting, and ₦30,000 maintenance fee.
+            </p>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Full POS features
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Multi-branch support
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Bulk product uploading via spreadsheets
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Sales history charts
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Unlimited attendants
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Unlimited admins
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Advanced analytics
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-5 w-5 text-primary-gold mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path></svg
+                >Dedicated phone support
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-16 overflow-x-auto" data-aos="fade-up">
+          <h3 class="text-2xl font-bold text-primary-dark mb-6 text-center">
+            Plan Comparison
+          </h3>
+          <table
+            class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden"
+          >
+            <thead class="bg-primary-gold text-primary-dark">
+              <tr>
+                <th class="p-4 text-left">Features</th>
+                <th class="p-4 text-center">Free Trial</th>
+                <th class="p-4 text-center">Basic</th>
+                <th class="p-4 text-center">Standard</th>
+                <th class="p-4 text-center">Premium</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="p-4 font-medium">Multi-Branch Support</td>
+                <td class="p-4 text-center">Limited</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+              </tr>
+              <tr class="border-t bg-gray-50">
+                <td class="p-4 font-medium">Bulk Product Upload</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-4 font-medium">Sales History Charts</td>
+                <td class="p-4 text-center">Basic</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+              </tr>
+              <tr class="border-t bg-gray-50">
+                <td class="p-4 font-medium">Attendants</td>
+                <td class="p-4 text-center">Limited</td>
+                <td class="p-4 text-center">Configurable</td>
+                <td class="p-4 text-center">Configurable</td>
+                <td class="p-4 text-center">Unlimited</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-4 font-medium">Admins</td>
+                <td class="p-4 text-center">Limited</td>
+                <td class="p-4 text-center">Configurable</td>
+                <td class="p-4 text-center">Configurable</td>
+                <td class="p-4 text-center">Unlimited</td>
+              </tr>
+              <tr class="border-t bg-gray-50">
+                <td class="p-4 font-medium">POS Features</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+                <td class="p-4 text-center">✔️</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-4 font-medium">Analytics</td>
+                <td class="p-4 text-center">Basic</td>
+                <td class="p-4 text-center">Basic</td>
+                <td class="p-4 text-center">Advanced</td>
+                <td class="p-4 text-center">Advanced</td>
+              </tr>
+              <tr class="border-t bg-gray-50">
+                <td class="p-4 font-medium">Support</td>
+                <td class="p-4 text-center">Basic</td>
+                <td class="p-4 text-center">Email & Chat</td>
+                <td class="p-4 text-center">Priority</td>
+                <td class="p-4 text-center">Dedicated Phone</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-4 font-medium">Price (Monthly)</td>
+                <td class="p-4 text-center">₦0.00</td>
+                <td class="p-4 text-center">₦15,000.00</td>
+                <td class="p-4 text-center">₦25,000.00</td>
+                <td class="p-4 text-center">₦40,000.00</td>
+              </tr>
+              <tr class="border-t bg-gray-50">
+                <td class="p-4 font-medium">Price (6mo)</td>
+                <td class="p-4 text-center">₦0.00</td>
+                <td class="p-4 text-center">₦90,000</td>
+                <td class="p-4 text-center">₦150,000</td>
+                <td class="p-4 text-center">₦240,000</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-4 font-medium">Price (1yr)</td>
+                <td class="p-4 text-center">₦0.00</td>
+                <td class="p-4 text-center">₦171,000</td>
+                <td class="p-4 text-center">₦285,000</td>
+                <td class="p-4 text-center">₦456,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Domain & Hosting Section -->
+    <section class="py-16 bg-accent-gray" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in"
+        >
+          Domain & Hosting Packages
+        </h2>
+        <p class="text-center text-gray-600 mb-8 animate-fade-in">
+          Smart-POS is cloud-based, requiring a domain and hosting package for
+          online operation. Hosting costs ₦3,500 per month, totaling ₦42,000 per
+          year, suitable for low-traffic sites and upgradable for higher needs.
+          Prices reflect 2025 Nigerian market rates (subject to registrar
+          changes).
+        </p>
+        <div class="overflow-x-auto">
+          <table
+            class="w-full border-collapse bg-white shadow-md rounded-lg overflow-hidden"
+          >
+            <thead class="bg-primary-gold text-primary-dark">
+              <tr>
+                <th class="p-4 text-left">Package</th>
+                <th class="p-4 text-left">Description</th>
+                <th class="p-4 text-center">Domain Cost</th>
+                <th class="p-4 text-center">Hosting (1 Year)</th>
+                <th class="p-4 text-center">Total (1 Year)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t">
+                <td class="p-4">.com.ng</td>
+                <td class="p-4">Standard business domain</td>
+                <td class="p-4 text-center">₦6,999</td>
+                <td class="p-4 text-center">₦42,000</td>
+                <td class="p-4 text-center">₦48,999</td>
+              </tr>
+              <tr class="border-t bg-gray-50">
+                <td class="p-4">.ng</td>
+                <td class="p-4">Short, local domain</td>
+                <td class="p-4 text-center">₦17,500</td>
+                <td class="p-4 text-center">₦42,000</td>
+                <td class="p-4 text-center">₦59,500</td>
+              </tr>
+              <tr class="border-t">
+                <td class="p-4">.com</td>
+                <td class="p-4">Global domain</td>
+                <td class="p-4 text-center">₦25,000</td>
+                <td class="p-4 text-center">₦42,000</td>
+                <td class="p-4 text-center">₦67,000</td>
+              </tr>
+              <tr class="border-t bg-gray-50">
+                <td class="p-4">Premium Linux Hosting</td>
+                <td class="p-4">
+                  8 GB Webspace, 30 GB Bandwidth, Free SSL, Unlimited
+                  Emails/Databases
+                </td>
+                <td class="p-4 text-center">—</td>
+                <td class="p-4 text-center">₦42,000</td>
+                <td class="p-4 text-center">₦42,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-center text-sm text-gray-500 mt-8">
+          Example: Year 1 Basic Plan (1yr) + .com.ng = ₦171,000 + ₦48,999 =
+          ₦219,999. Year 2 Renewal = ₦48,999 + ₦30,000 = ₦78,999. Invest once,
+          renew affordably, and grow continuously.
+        </p>
+      </div>
+    </section>
+
+    <!-- Payment Information Section -->
+    <section id="payment" class="py-16 bg-white" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold text-center mb-6 text-primary-dark animate-fade-in"
+        >
+          Payment Information
+        </h2>
+        <div
+          class="bg-gradient-to-br from-accent-gold to-white rounded-xl shadow-md p-8 max-w-3xl mx-auto animated-card"
+        >
+          <h3 class="text-xl font-semibold mb-4 text-primary-dark">
+            Payment Terms
+          </h3>
+          <p class="text-gray-600 mb-6">
+            Year 1 includes full payment upfront for the selected subscription
+            plan, billing cycle, setup, and domain/hosting package. From Year 2
+            onwards, renew only domain, hosting, and a ₦30,000 annual
+            maintenance fee (covers software updates, bug fixes, improvements,
+            and ongoing support). Payments are made securely via
+            <span class="font-semibold">bank transfer</span>. Each subscription
+            applies to your business with multi-branch support.
+          </p>
+          <h3 class="text-xl font-semibold mb-4 text-primary-dark">
+            Bank Transfer Details
+          </h3>
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+            <p class="text-gray-700">
+              <span class="font-semibold">Bank:</span> Opay
+            </p>
+            <p class="text-gray-700">
+              <span class="font-semibold">Account Number:</span> 9075148963
+            </p>
+            <p class="text-gray-700">
+              <span class="font-semibold">Account Name:</span> Alonge
+              OluwaKorede Matthias
+            </p>
+            <p class="text-gray-700 mt-4">
+              <span class="font-semibold">Payment Reference:</span>
+              <span class="italic">POS Subscription [Plan Name] + Hosting</span>
+            </p>
+            <p class="text-gray-700 mt-4">
+              Payments are verified, and setup begins the same day. Contact the
+              developer for plan changes. All payments are secure—receive
+              confirmation immediately.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 px-4 sm:px-6" data-aos="fade-up">
+      <div
+        class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl animated-card card-hover animate-fade-in"
+      >
+        <div class="text-center p-6 sm:p-8">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            Launch Your Business in 48 Hours
+          </h2>
+          <p class="text-base md:text-lg mb-8 max-w-xl mx-auto">
+            With SmartPOS, achieve 50% faster checkouts, 20% less inventory
+            waste, and e-commerce scalability. Start your free trial or schedule
+            a demo today!
+          </p>
+          <div
+            class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <a
+              href="#"
+              class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold text-base hover:bg-accent-gold transition btn-hover shadow-md"
+              >Start Free 7-Day Trial</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-accent-gray" id="faq">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div class="space-y-4">
+          <div
+            class="faq-item bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card"
+          >
+            <div class="flex justify-between items-center faq-toggle">
+              <h3 class="text-xl font-semibold text-primary-dark">Can I change my plan?</h3>
+              <span class="text-2xl text-primary-gold">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4">
+              <p>
+                Plans are set by the developer. Contact support if you need to
+                upgrade or switch.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card"
+          >
+            <div class="flex justify-between items-center faq-toggle">
+              <h3 class="text-xl font-semibold text-primary-dark">
+                What happens if my subscription expires?
+              </h3>
+              <span class="text-2xl text-primary-gold">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4">
+              <p>
+                Access will be paused until a new plan is assigned or renewed.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card"
+          >
+            <div class="flex justify-between items-center faq-toggle">
+              <h3 class="text-xl font-semibold text-primary-dark">
+                How many branches are covered?
+              </h3>
+              <span class="text-2xl text-primary-gold">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4">
+              <p>
+                Each subscription includes multi-branch support. Add as many as
+                needed via the register branch view.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card"
+          >
+            <div class="flex justify-between items-center faq-toggle">
+              <h3 class="text-xl font-semibold text-primary-dark">
+                What are the renewal costs?
+              </h3>
+              <span class="text-2xl text-primary-gold">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4">
+              <p>
+                From Year 2, renewals include domain/hosting (e.g., ₦48,999 for
+                .com.ng) plus a ₦30,000 maintenance fee.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card"
+          >
+            <div class="flex justify-between items-center faq-toggle">
+              <h3 class="text-xl font-semibold text-primary-dark">Is there a free trial?</h3>
+              <span class="text-2xl text-primary-gold">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4">
+              <p>
+                Yes, enjoy a 7-day free trial with full POS features to test
+                SmartPOS risk-free.
+              </p>
+            </div>
+          </div>
+          <div
+            class="faq-item bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card"
+          >
+            <div class="flex justify-between items-center faq-toggle">
+              <h3 class="text-xl font-semibold text-primary-dark">What support is included?</h3>
+              <span class="text-2xl text-primary-gold">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4">
+              <p>
+                Plans include varying levels: Basic (email/chat), Standard
+                (priority), Premium (dedicated phone). All get 30-day free
+                support post-deployment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo and Description -->
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full overflow-hidden mr-4">
+                            <img src="asset/logo.png" alt="SmartPOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                        <h3 class="text-xl font-bold">SmartPOS</h3>
+                    </div>
+                    <p class="text-sm">From chaos to control: Secure, automate, and thrive with SmartPOS. End theft, gain insights, and scale effortlessly.</p>
+                </div>
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:underline">Home</a></li>
+                        <li><a href="about.html" class="hover:underline">About</a></li>
+                        <li><a href="pricing.html" class="hover:underline">Pricing</a></li>
+                        <li><a href="testimonial.html" class="hover:underline">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+                <!-- Support -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:underline">FAQ</a></li>
+                        <li><a href="#" class="hover:underline">Documentation</a></li>
+                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
+                    <p class="text-sm mt-2">Phone: 09075148963 / 08140155828 (WhatsApp)</p>
+                    <p class="text-sm">Email: mickyalonge@gmail.com</p>
+                    <p class="text-sm">Portfolio: <a href="https://folio-two-blush.vercel.app/" class="hover:underline">https://folio-two-blush.vercel.app/</a></p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">🐦</a>
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">📘</a>
+                        <a href="#" class="text-2xl hover:text-primary-gold transition">📸</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm border-t border-white/20 pt-4">
+                &copy; 2025 SmartPOS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Hamburger Menu, FAQ, and Pricing Toggle -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false, // Allow animations to repeat when scrolling back
+            mirror: true // Animate out when scrolling past
+        });
+    </script>
+    <script>
+          lucide.createIcons();
+
+      document
+        .querySelector(".hamburger")
+        .addEventListener("click", function () {
+          this.classList.toggle("open");
+          document.querySelector(".mobile-menu").classList.toggle("hidden");
+        });
+
+      // FAQ Toggle
+      document.querySelectorAll(".faq-toggle").forEach((item) => {
+        item.addEventListener("click", function () {
+          const faqItem = this.parentElement;
+          const isOpen = faqItem.classList.contains("open");
+          document.querySelectorAll(".faq-item").forEach((i) => {
+            i.classList.remove("open");
+            i.querySelector(".faq-toggle span").textContent = "+";
+          });
+          if (!isOpen) {
+            faqItem.classList.add("open");
+            this.querySelector("span").textContent = "−";
+          }
+        });
+      });
+
+      // Pricing Toggle
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("billing-toggle");
+        const sixMonthPrices = document.querySelectorAll(".six-month-price");
+        const oneYearPrices = document.querySelectorAll(".one-year-price");
+        const monthlyPrices = document.querySelectorAll(".monthly-price");
+        const monthlyYearlyPrices = document.querySelectorAll(
+          ".monthly-price-yearly"
+        );
+        toggle.addEventListener("change", () => {
+          const isYearly = toggle.checked;
+          sixMonthPrices.forEach((price) => {
+            if (!price.closest('[data-plan="Free Trial"]')) {
+              price.classList.toggle("hidden", isYearly);
+            }
+          });
+          oneYearPrices.forEach((price) => {
+            if (!price.closest('[data-plan="Free Trial"]')) {
+              price.classList.toggle("hidden", !isYearly);
+            }
+          });
+          monthlyPrices.forEach((price) => {
+            if (!price.closest('[data-plan="Free Trial"]')) {
+              price.classList.toggle("hidden", isYearly);
+            }
+          });
+          monthlyYearlyPrices.forEach((price) => {
+            if (!price.closest('[data-plan="Free Trial"]')) {
+              price.classList.toggle("hidden", !isYearly);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
