@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - UbiquePOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-gold': '#CDA434',
+                        'primary-dark': '#1F2937',
+                        'accent-gold': '#F5E6CA',
+                        'accent-gray': '#F3F4F6',
+                        'secondary-blue': '#1D4ED8',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-in': 'slideIn 0.3s ease-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 100vw solid transparent;
+            border-bottom: 80px solid white;
+            z-index: 1;
+        }
+        @media (min-width: 768px) {
+            .triangle {
+                border-bottom-width: 150px;
+            }
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(205, 164, 52, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
+        }
+        .hamburger div {
+            transition: all 0.3s ease;
+        }
+        .hamburger.open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open .line2 {
+            opacity: 0;
+        }
+        .hamburger.open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .animated-card {
+            transition: all 0.3s ease;
+        }
+        .animated-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(205, 164, 52, 0.2);
+        }
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        .faq-item.open .faq-answer {
+            display: block;
+            opacity: 1;
+            max-height: 500px;
+        }
+        .faq-answer {
+            display: none;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-toggle {
+            cursor: pointer;
+        }
+        .faq-toggle span {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.open .faq-toggle span {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body class="bg-accent-gray font-sans antialiased">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center h-16">
+                        <div class="h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden">
+                            <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                    </a>
+                    <a href="about.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                    </a>
+                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                    </a>
+                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                    </a>
+                    <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="hamburger focus:outline-none" aria-label="Toggle menu">
+                        <div class="line1 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line2 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line3 w-6 h-0.5 bg-gray-700"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
+                <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                </a>
+                <a href="about.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                </a>
+                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                </a>
+                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                </a>
+                <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-12 md:py-20 overflow-hidden">
+        <div class="triangle"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in relative z-10">
+            <div class="text-center md:text-left max-w-3xl mx-auto">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
+                <p class="text-base sm:text-lg md:text-xl mb-6">Find answers to common questions about UbiquePOS. From setup to security, we've got you covered. Can't find what you're looking for? <a href="contact.html" class="text-accent-gold hover:underline font-semibold">Contact us</a> anytime!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Search Section -->
+    <section class="py-8 bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative">
+                <input type="text" id="faq-search" placeholder="Search FAQs..." class="w-full px-4 py-3 pl-12 border-2 border-gray-300 rounded-full focus:border-primary-gold focus:outline-none text-sm sm:text-base">
+                <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Categories -->
+    <section class="py-12 md:py-16 bg-accent-gray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- General Questions -->
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">General Questions</h2>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="general">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What is UbiquePOS?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>UbiquePOS is a comprehensive cloud-based point-of-sale system designed to automate business operations, prevent theft, and provide real-time insights. Perfect for retail stores, pharmacies, restaurants, supermarkets, and hotels, it combines inventory management, sales tracking, and multi-branch support in one intuitive platform.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="general">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Who can benefit from UbiquePOS?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Any business that sells products or services can benefit, including retail stores, pharmacies, restaurants, supermarkets, hotels, boutiques, and service providers. Whether you're a single location or managing multiple branches, UbiquePOS scales to your needs.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="general">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What makes UbiquePOS different from other POS systems?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>UbiquePOS enforces accountability by preventing sales without stock updates, offers remote management from anywhere, provides real-time low-stock alerts, and includes built-in e-commerce expansion capabilities. Plus, you get free hosting and domain with built-in SEO tools at no extra cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features & Functionality -->
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">Features & Functionality</h2>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="features">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">How does UbiquePOS prevent theft?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>By enforcing strict accountability: no sales can be processed without stock updates. Every transaction requires proper inventory verification, role-based access controls ensure only authorized personnel can perform specific actions, comprehensive audit logs track all activities, and admins can approve sales remotely. This multi-layered approach eliminates unauthorized sales and theft.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="features">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Can I manage multiple branches?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Absolutely! UbiquePOS supports unlimited branches with centralized control. Monitor all locations from one dashboard, sync inventory in real-time across branches, view consolidated or branch-specific reports, and easily add new locations as you expand. Growth has never been easier.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="features">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What reports and analytics are available?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Comprehensive real-time reports including sales history by date/product/attendant, top-selling products analysis, low-stock alerts, revenue trends and performance metrics, inventory turnover rates, and exportable data for further analysis. All designed to drive data-driven decisions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="features">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Does UbiquePOS work offline?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>UbiquePOS requires an internet connection for real-time synchronization and remote management features. However, the system is designed to work efficiently even with moderate internet speeds (10-30 Mbps), and uses minimal data (under 3GB per month).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Setup & Implementation -->
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">Setup & Implementation</h2>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="setup">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What are the system requirements?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p><strong>Hardware:</strong> Any PC or laptop with 4GB RAM (8GB recommended), or even an Android phone with a modern browser. <strong>Internet:</strong> Stable connection with 10-30 Mbps speed. <strong>Printer:</strong> Thermal receipt printer for professional receipts (optional but recommended).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="setup">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">How long does setup take?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Just 1-2 days for complete deployment: <strong>Hour 1:</strong> Sign up and configure business details. <strong>Hours 2-3:</strong> Bulk import inventory via Excel (no manual entry needed). <strong>Hour 4:</strong> Assign user roles and conduct training. <strong>Hour 5:</strong> Test runs and fine-tuning. You'll be fully operational in 48 hours or less!</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="setup">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Do I need technical skills to use UbiquePOS?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>No technical skills required! UbiquePOS is designed with an intuitive interface that anyone can use. We provide guided training during setup, and our support team is always available to help. If you can use a web browser, you can use UbiquePOS.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="setup">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Can you help migrate my existing data?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Yes! We offer free data migration assistance. Simply provide your existing inventory data in Excel or CSV format, and our team will help import it into UbiquePOS. We ensure a smooth transition with zero data loss.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Plans -->
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">Pricing & Plans</h2>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="pricing">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Is there a free trial?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Yes! Enjoy a 7-day free trial with full access to all features. Experience automation, accountability, and growth firsthand with no credit card required and no commitment. If you love it, continue with a paid plan. If not, simply walk away—no questions asked.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="pricing">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What payment methods do you accept?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>We accept secure bank transfers for subscription payments. Payment details and instructions are provided on our pricing page and during checkout. For any payment assistance, our team is ready to help via WhatsApp or email.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="pricing">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Can I change my plan later?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Absolutely! You can upgrade or downgrade your plan anytime. Upgrades take effect immediately, while downgrades apply at the next billing cycle. Contact us to make changes, and we'll handle the transition smoothly.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="pricing">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Are there any hidden fees?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>No hidden fees, ever. The price you see is what you pay. This includes hosting, domain (for e-commerce expansion), regular updates, and basic support. Only additional customization or premium support features may have extra costs, which are clearly communicated upfront.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security & Data -->
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">Security & Data</h2>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="security">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">How secure is my data?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Highly secure. We use encrypted cloud storage, SSL/TLS encryption for data transmission, role-based access controls, comprehensive audit logs, regular automated backups, and compliance with data protection standards. Your business data is protected with bank-level security.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="security">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What happens if I lose internet connection?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>As a cloud-based system, UbiquePOS requires internet connectivity for full functionality. We recommend having a backup internet source (mobile hotspot) for uninterrupted service. The system uses minimal bandwidth, so even mobile data can keep you running.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="security">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Can I export my data?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Yes! You own your data and can export it anytime in Excel/CSV format. Export sales reports, inventory lists, customer data, and more for external analysis or record-keeping. Your data is always accessible and portable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support & Training -->
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">Support & Training</h2>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="support">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What support do you offer?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>We provide 30-day free support after deployment, plus plan-specific options: <strong>Basic Plan:</strong> Email and chat support. <strong>Standard Plan:</strong> Priority email, chat, and phone support. <strong>Premium Plan:</strong> Dedicated account manager with 24/7 phone support. We're committed to your success every step of the way.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="support">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Do you provide training for my staff?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Yes! Initial training is included during setup. We provide guided sessions for admins and attendants, video tutorials and documentation, and ongoing support for questions. Most teams are fully comfortable within 1-2 hours of training due to our intuitive design.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="support">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">How quickly do you respond to support requests?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>We respond within 24 hours for email/chat inquiries. For urgent issues on Standard and Premium plans, phone support provides immediate assistance. WhatsApp contact is available for the fastest response during business hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- E-Commerce & Expansion -->
+            <div class="mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">E-Commerce & Expansion</h2>
+                <div class="space-y-4">
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="ecommerce">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Can I expand to e-commerce later?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Absolutely! UbiquePOS includes built-in e-commerce capabilities. Launch an online store with synced inventory, built-in SEO tools for Google ranking, free hosting and domain, delivery and pickup options, and customer accounts with loyalty programs. Scale from physical to digital seamlessly.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="ecommerce">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Do you provide hosting and domain?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Yes! Free hosting and domain are included at no extra cost. We handle all technical setup, SSL certificates for security, and ongoing maintenance. You focus on your business while we manage the infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="ecommerce">
+                        <div class="flex justify-between items-start faq-toggle">
+                            <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">How does inventory sync between physical store and online?</h3>
+                            <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+                        </div>
+                        <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                            <p>Real-time automatic synchronization! When a product sells in-store, it's instantly updated online and vice versa. This prevents overselling, maintains accurate stock levels across all channels, and provides unified reporting for complete visibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Future Improvements & Upcoming Features -->
+<div class="mb-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6 md:mb-8 text-primary-dark">Future Improvements & Upcoming Features</h2>
+    <div class="space-y-4">
+        <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="future">
+            <div class="flex justify-between items-start faq-toggle">
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">What advanced HR features are coming?</h3>
+                <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                <p>We are introducing comprehensive HR tools including employee onboarding, attendance tracking, leave management, payroll and salary processing, task assignment and monitoring, and tax record management. These features will help streamline HR operations directly within the app.</p>
+            </div>
+        </div>
+
+        <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="future">
+            <div class="flex justify-between items-start faq-toggle">
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Will these features integrate with existing POS operations?</h3>
+                <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                <p>Yes! All upcoming HR modules will seamlessly integrate with current POS functionality, ensuring that payroll, employee management, and performance tracking are linked with sales, inventory, and business analytics.</p>
+            </div>
+        </div>
+
+        <div class="faq-item bg-white p-4 sm:p-6 rounded-xl shadow-md animated-card" data-category="future">
+            <div class="flex justify-between items-start faq-toggle">
+                <h3 class="text-base sm:text-lg md:text-xl font-semibold text-primary-dark pr-4">Are there plans for additional business management features?</h3>
+                <span class="text-2xl text-primary-gold flex-shrink-0">+</span>
+            </div>
+            <div class="faq-answer text-gray-600 mt-4 text-sm sm:text-base">
+                <p>Absolutely! Future updates will include enhanced analytics, and tools to simplify tax compliance and compensation planning.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Still Have Questions CTA -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-primary-dark">Still Have Questions?</h2>
+            <p class="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">Can't find the answer you're looking for? Our team is here to help! Reach out via WhatsApp for instant responses or schedule a free demo to see UbiquePOS in action.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/2349075148963" target="_blank" class="inline-block bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover text-sm sm:text-base">WhatsApp Us</a>
+                <a href="contact.html" class="inline-block bg-secondary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition btn-hover text-sm sm:text-base">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden mr-4">
+                            <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold">UbiquePOS</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm">From chaos to control: Secure, automate, and thrive with UbiquePOS. End theft, gain insights, and scale effortlessly.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="index.html" class="hover:underline">Home</a></li>
+                        <li><a href="about.html" class="hover:underline">About</a></li>
+                        <li><a href="pricing.html" class="hover:underline">Pricing</a></li>
+                        <li><a href="testimonial.html" class="hover:underline">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">Support</h3>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="faq.html" class="hover:underline">FAQ</a></li>
+                        <li><a href="#" class="hover:underline">Documentation</a></li>
+                        <li><a href="privacy-terms.html" class="hover:underline">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">Contact Us</h3>
+                    <p class="text-xs sm:text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
+                    <p class="text-xs sm:text-sm mt-2">Phone: 09075148963 / 08140155828</p>
+                    <p class="text-xs sm:text-sm">Email: mickyalonge@gmail.com</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-xl sm:text-2xl hover:text-primary-gold transition">🐦</a>
+                        <a href="#" class="text-xl sm:text-2xl hover:text-primary-gold transition">📘</a>
+                        <a href="#" class="text-xl sm:text-2xl hover:text-primary-gold transition">📸</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 md:mt-8 text-center text-xs sm:text-sm border-t border-white/20 pt-4">
+                &copy; 2025 UbiquePOS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+    </script>
+    <script>
+        lucide.createIcons();
+        
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('open');
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-toggle').forEach(item => {
+            item.addEventListener('click', function() {
+                const faqItem = this.parentElement;
+                const isOpen = faqItem.classList.contains('open');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.faq-toggle span').textContent = '+';
+                });
+                
+                // Toggle current FAQ
+                if (!isOpen) {
+                    faqItem.classList.add('open');
+                    this.querySelector('span').textContent = '−';
+                }
+            });
+        });
+
+        // FAQ Search Functionality
+        const searchInput = document.getElementById('faq-search');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

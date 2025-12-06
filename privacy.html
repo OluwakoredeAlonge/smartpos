@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Terms of Service - UbiquePOS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-gold': '#CDA434',
+                        'primary-dark': '#1F2937',
+                        'accent-gold': '#F5E6CA',
+                        'accent-gray': '#F3F4F6',
+                        'secondary-blue': '#1D4ED8',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-in': 'slideIn 0.3s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0)' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 100vw solid transparent;
+            border-bottom: 80px solid white;
+            z-index: 1;
+        }
+        @media (min-width: 768px) {
+            .triangle {
+                border-bottom-width: 150px;
+            }
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
+        }
+        .hamburger div {
+            transition: all 0.3s ease;
+        }
+        .hamburger.open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open .line2 {
+            opacity: 0;
+        }
+        .hamburger.open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+        .section-nav {
+            position: sticky;
+            top: 80px;
+            max-height: calc(100vh - 100px);
+            overflow-y: auto;
+        }
+        .section-nav a {
+            transition: all 0.3s ease;
+        }
+        .section-nav a.active {
+            color: #CDA434;
+            font-weight: 600;
+            border-left: 3px solid #CDA434;
+        }
+    </style>
+</head>
+<body class="bg-accent-gray font-sans antialiased">
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center h-16">
+                        <div class="h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden">
+                            <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                    </a>
+                    <a href="about.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                    </a>
+                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                    </a>
+                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                    </a>
+                    <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="hamburger focus:outline-none" aria-label="Toggle menu">
+                        <div class="line1 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line2 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line3 w-6 h-0.5 bg-gray-700"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
+                <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                </a>
+                <a href="about.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                </a>
+                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                </a>
+                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                </a>
+                <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold py-2">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-12 md:py-20 overflow-hidden">
+        <div class="triangle"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in relative z-10">
+            <div class="text-center md:text-left max-w-3xl mx-auto">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Privacy Policy & Terms of Service</h1>
+                <p class="text-base sm:text-lg md:text-xl mb-6">Your trust matters. Learn how we protect your data and outline our terms of service. Last updated: December 2024</p>
+            </div>
+        </div>
+    </section>
+    <!-- Tab Navigation -->
+    <section class="py-6 bg-white sticky top-16 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center space-x-4">
+                <button id="privacy-tab" class="px-4 sm:px-6 py-2 sm:py-3 bg-primary-gold text-primary-dark rounded-full font-semibold transition text-sm sm:text-base">Privacy Policy</button>
+                <button id="terms-tab" class="px-4 sm:px-6 py-2 sm:py-3 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition text-sm sm:text-base">Terms of Service</button>
+            </div>
+        </div>
+    </section>
+    <!-- Content Section -->
+    <section class="py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Side Navigation (Desktop Only) -->
+                <div class="hidden lg:block">
+                    <div class="section-nav bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-lg font-bold mb-4 text-primary-dark" id="nav-title">Privacy Policy</h3>
+                        <nav id="privacy-nav" class="space-y-2">
+                            <a href="#privacy-intro" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Introduction</a>
+                            <a href="#privacy-collection" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Information We Collect</a>
+                            <a href="#privacy-use" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">How We Use Information</a>
+                            <a href="#privacy-sharing" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Information Sharing</a>
+                            <a href="#privacy-security" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Data Security</a>
+                            <a href="#privacy-rights" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Your Rights</a>
+                            <a href="#privacy-contact" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Contact Us</a>
+                        </nav>
+                        <nav id="terms-nav" class="space-y-2 hidden">
+                            <a href="#terms-acceptance" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Acceptance of Terms</a>
+                            <a href="#terms-services" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Services Description</a>
+                            <a href="#terms-account" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">User Accounts</a>
+                            <a href="#terms-payment" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Payment & Billing</a>
+                            <a href="#terms-use" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Acceptable Use</a>
+                            <a href="#terms-termination" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Termination</a>
+                            <a href="#terms-liability" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Liability</a>
+                            <a href="#terms-changes" class="block pl-3 py-2 text-sm text-gray-600 hover:text-primary-gold border-l-2 border-transparent">Changes to Terms</a>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="lg:col-span-3">
+                    <!-- Privacy Policy Content -->
+                    <div id="privacy-content">
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h2 id="privacy-intro" class="text-2xl sm:text-3xl font-bold mb-4 text-primary-dark">Privacy Policy</h2>
+                            <p class="text-sm text-gray-500 mb-6">Effective Date: December 1, 2024</p>
+                            <p class="text-sm sm:text-base text-gray-600 mb-4">At UbiquePOS, we are committed to protecting your privacy and ensuring the security of your personal and business data. This Privacy Policy explains how we collect, use, and safeguard your information when you use our point-of-sale system and related services.</p>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="privacy-collection" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Information We Collect</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <div>
+                                    <h4 class="font-semibold text-primary-dark mb-2">Personal Information</h4>
+                                    <p>When you register for UbiquePOS, we collect information such as your name, email address, phone number, business name, and billing information. This information is necessary to create and manage your account.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary-dark mb-2">Business Data</h4>
+                                    <p>We collect and store business-related data including inventory information, sales transactions, customer data (if you choose to collect it), employee access logs, and business performance analytics. This data is essential for the operation of our POS system.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-primary-dark mb-2">Technical Information</h4>
+                                    <p>We automatically collect certain technical information including IP address, browser type, device information, usage patterns, and system logs. This helps us improve our service and troubleshoot issues.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="privacy-use" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">How We Use Your Information</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>We use the collected information to:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Provide and maintain the UbiquePOS service</li>
+                                    <li>Process your transactions and manage your account</li>
+                                    <li>Send you service-related communications and updates</li>
+                                    <li>Provide customer support and respond to your inquiries</li>
+                                    <li>Improve our services and develop new features</li>
+                                    <li>Detect, prevent, and address technical issues or fraud</li>
+                                    <li>Comply with legal obligations and enforce our terms</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="privacy-sharing" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Information Sharing and Disclosure</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>We do not sell your personal or business data to third parties. We may share your information only in the following circumstances:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li><strong>Service Providers:</strong> We work with trusted third-party providers for hosting, payment processing, and analytics. These providers have access only to information necessary to perform their services.</li>
+                                    <li><strong>Legal Requirements:</strong> We may disclose information if required by law, court order, or government regulation.</li>
+                                    <li><strong>Business Transfers:</strong> If UbiquePOS is involved in a merger, acquisition, or sale, your information may be transferred as part of that transaction.</li>
+                                    <li><strong>With Your Consent:</strong> We may share information with your explicit consent for specific purposes.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="privacy-security" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Data Security</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>We implement industry-standard security measures to protect your data, including:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>SSL/TLS encryption for data transmission</li>
+                                    <li>Encrypted storage of sensitive information</li>
+                                    <li>Role-based access controls</li>
+                                    <li>Regular security audits and updates</li>
+                                    <li>Automated backup systems</li>
+                                    <li>Comprehensive audit logs</li>
+                                </ul>
+                                <p class="mt-4">While we take all reasonable precautions, no system is completely secure. We cannot guarantee absolute security but commit to promptly addressing any security incidents.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="privacy-rights" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Your Rights and Choices</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>You have the following rights regarding your data:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li><strong>Access:</strong> Request a copy of your personal and business data</li>
+                                    <li><strong>Correction:</strong> Update or correct inaccurate information</li>
+                                    <li><strong>Deletion:</strong> Request deletion of your data (subject to legal retention requirements)</li>
+                                    <li><strong>Export:</strong> Export your data in a portable format at any time</li>
+                                    <li><strong>Opt-out:</strong> Unsubscribe from marketing communications</li>
+                                </ul>
+                                <p class="mt-4">To exercise these rights, please contact us at <a href="mailto:mickyalonge@gmail.com" class="text-primary-gold hover:underline">mickyalonge@gmail.com</a>.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="privacy-contact" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Contact Us</h3>
+                            <div class="space-y-2 text-sm sm:text-base text-gray-600">
+                                <p>If you have questions or concerns about this Privacy Policy, please contact us:</p>
+                                <p><strong>Email:</strong> <a href="mailto:mickyalonge@gmail.com" class="text-primary-gold hover:underline">mickyalonge@gmail.com</a> or <a href="mailto:koredealonge38@gmail.com" class="text-primary-gold hover:underline">koredealonge38@gmail.com</a></p>
+                                <p><strong>Phone:</strong> +234 907 514 8963 / +234 813 778 8406</p>
+                                <p><strong>Address:</strong> House 1, Moferere Street, Ado-Ekiti, Nigeria</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Terms of Service Content -->
+                    <div id="terms-content" class="hidden">
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h2 id="terms-acceptance" class="text-2xl sm:text-3xl font-bold mb-4 text-primary-dark">Terms of Service</h2>
+                            <p class="text-sm text-gray-500 mb-6">Effective Date: December 1, 2024</p>
+                            <p class="text-sm sm:text-base text-gray-600 mb-4">Welcome to UbiquePOS. By accessing or using our point-of-sale system and related services, you agree to be bound by these Terms of Service. Please read them carefully before using our platform.</p>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="terms-services" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Services Description</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>UbiquePOS provides a cloud-based point-of-sale system that includes:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Inventory management and tracking</li>
+                                    <li>Sales processing and reporting</li>
+                                    <li>Multi-branch management capabilities</li>
+                                    <li>User role management and access controls</li>
+                                    <li>Real-time analytics and insights</li>
+                                    <li>E-commerce expansion capabilities</li>
+                                    <li>Free hosting and domain services</li>
+                                </ul>
+                                <p class="mt-4">We reserve the right to modify, suspend, or discontinue any part of our services with reasonable notice to users.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="terms-account" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">User Accounts</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>When creating an account, you agree to:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Provide accurate and complete information</li>
+                                    <li>Maintain the security of your account credentials</li>
+                                    <li>Notify us immediately of any unauthorized access</li>
+                                    <li>Accept responsibility for all activities under your account</li>
+                                    <li>Not share your account with others</li>
+                                </ul>
+                                <p class="mt-4">You must be at least 18 years old or have legal authority to enter into contracts to use UbiquePOS.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="terms-payment" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Payment and Billing</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Subscription fees are billed in advance on a monthly or annual basis</li>
+                                    <li>We offer a 7-day free trial for new users</li>
+                                    <li>Payment is due according to the billing cycle you select</li>
+                                    <li>All fees are non-refundable except as required by law</li>
+                                    <li>We reserve the right to change pricing with 30 days' notice</li>
+                                    <li>Failure to pay may result in suspension or termination of services</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="terms-use" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Acceptable Use Policy</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>You agree not to:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Use the service for any illegal activities</li>
+                                    <li>Attempt to gain unauthorized access to our systems</li>
+                                    <li>Interfere with or disrupt the service</li>
+                                    <li>Upload malicious code or viruses</li>
+                                    <li>Resell or redistribute our services without permission</li>
+                                    <li>Violate any applicable laws or regulations</li>
+                                    <li>Infringe on intellectual property rights</li>
+                                </ul>
+                                <p class="mt-4">Violation of these terms may result in immediate termination of your account.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="terms-termination" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Termination</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p><strong>By You:</strong> You may terminate your account at any time through your account settings or by contacting us. Upon termination, you will retain access until the end of your current billing period.</p>
+                                <p><strong>By Us:</strong> We may suspend or terminate your account if you violate these terms, engage in fraudulent activity, or fail to pay fees. We will provide notice when possible, except in cases of serious violations.</p>
+                                <p><strong>Data Retention:</strong> After termination, we will retain your data for 30 days to allow for recovery. After this period, data will be permanently deleted unless legally required to retain it.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="terms-liability" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Limitation of Liability</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>UbiquePOS is provided "as is" without warranties of any kind. To the maximum extent permitted by law:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>We are not liable for any indirect, incidental, or consequential damages</li>
+                                    <li>Our total liability is limited to the amount you paid in the last 12 months</li>
+                                    <li>We do not guarantee uninterrupted or error-free service</li>
+                                    <li>You are responsible for maintaining backups of your data</li>
+                                </ul>
+                                <p class="mt-4">Some jurisdictions do not allow limitation of liability, so these limitations may not apply to you.</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md mb-8">
+                            <h3 id="terms-changes" class="text-xl sm:text-2xl font-bold mb-4 text-primary-dark">Changes to Terms</h3>
+                            <div class="space-y-4 text-sm sm:text-base text-gray-600">
+                                <p>We may update these Terms of Service from time to time. When we make significant changes, we will:</p>
+                                <ul class="list-disc pl-6 space-y-2">
+                                    <li>Notify you via email or through the service</li>
+                                    <li>Post the updated terms on our website</li>
+                                    <li>Provide at least 30 days' notice for material changes</li>
+                                </ul>
+                                <p class="mt-4">Your continued use of the service after changes constitutes acceptance of the updated terms.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Still Have Questions CTA -->
+    <section class="py-12 md:py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-primary-dark">Still Have Questions?</h2>
+            <p class="text-base sm:text-lg text-gray-600 mb-6 md:mb-8">Can't find the information you're looking for in our policies? Our team is here to help! Reach out via WhatsApp for instant responses or contact us for more details.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/2349075148963" target="_blank" class="inline-block bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover text-sm sm:text-base">WhatsApp Us</a>
+                <a href="contact.html" class="inline-block bg-secondary-blue text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition btn-hover text-sm sm:text-base">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Footer -->
+    <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-full overflow-hidden mr-4">
+                            <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                        <h3 class="text-lg sm:text-xl font-bold">UbiquePOS</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm">From chaos to control: Secure, automate, and thrive with UbiquePOS. End theft, gain insights, and scale effortlessly.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="index.html" class="hover:underline">Home</a></li>
+                        <li><a href="about.html" class="hover:underline">About</a></li>
+                        <li><a href="pricing.html" class="hover:underline">Pricing</a></li>
+                        <li><a href="testimonial.html" class="hover:underline">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">Support</h3>
+                    <ul class="space-y-2 text-xs sm:text-sm">
+                        <li><a href="faq.html" class="hover:underline">FAQ</a></li>
+                        <li><a href="#" class="hover:underline">Documentation</a></li>
+                        <li><a href="privacy-terms.html" class="hover:underline">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg sm:text-xl font-bold mb-3 md:mb-4">Contact Us</h3>
+                    <p class="text-xs sm:text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
+                    <p class="text-xs sm:text-sm mt-2">Phone: 09075148963 / 08140155828</p>
+                    <p class="text-xs sm:text-sm">Email: mickyalonge@gmail.com</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-xl sm:text-2xl hover:text-primary-gold transition">🐦</a>
+                        <a href="#" class="text-xl sm:text-2xl hover:text-primary-gold transition">📘</a>
+                        <a href="#" class="text-xl sm:text-2xl hover:text-primary-gold transition">📸</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 md:mt-8 text-center text-xs sm:text-sm border-t border-white/20 pt-4">
+                &copy; 2025 UbiquePOS. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 800,
+        once: false,
+        mirror: true
+    });
+</script>
+<script>
+    lucide.createIcons();
+    
+    // Hamburger Menu Toggle
+    document.querySelector('.hamburger').addEventListener('click', function() {
+        this.classList.toggle('open');
+        document.querySelector('.mobile-menu').classList.toggle('hidden');
+    });
+
+    // Tab Switching
+    const privacyTab = document.getElementById('privacy-tab');
+    const termsTab = document.getElementById('terms-tab');
+    const privacyContent = document.getElementById('privacy-content');
+    const termsContent = document.getElementById('terms-content');
+    const navTitle = document.getElementById('nav-title');
+    const privacyNav = document.getElementById('privacy-nav');
+    const termsNav = document.getElementById('terms-nav');
+
+    function showPrivacy() {
+        privacyContent.classList.remove('hidden');
+        termsContent.classList.add('hidden');
+        privacyTab.classList.add('bg-primary-gold', 'text-primary-dark');
+        privacyTab.classList.remove('bg-gray-200', 'text-gray-700');
+        termsTab.classList.add('bg-gray-200', 'text-gray-700');
+        termsTab.classList.remove('bg-primary-gold', 'text-primary-dark');
+        navTitle.textContent = 'Privacy Policy';
+        privacyNav.classList.remove('hidden');
+        termsNav.classList.add('hidden');
+    }
+
+    function showTerms() {
+        termsContent.classList.remove('hidden');
+        privacyContent.classList.add('hidden');
+        termsTab.classList.add('bg-primary-gold', 'text-primary-dark');
+        termsTab.classList.remove('bg-gray-200', 'text-gray-700');
+        privacyTab.classList.add('bg-gray-200', 'text-gray-700');
+        privacyTab.classList.remove('bg-primary-gold', 'text-primary-dark');
+        navTitle.textContent = 'Terms of Service';
+        termsNav.classList.remove('hidden');
+        privacyNav.classList.add('hidden');
+    }
+
+    privacyTab.addEventListener('click', showPrivacy);
+    termsTab.addEventListener('click', showTerms);
+
+    // Show correct tab on page load based on URL hash
+    document.addEventListener('DOMContentLoaded', function() {
+        const hash = window.location.hash;
+        if (hash === '#terms-content') {
+            showTerms();
+            // Optional: scroll to the top of terms section
+            termsContent.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            showPrivacy();
+        }
+    });
+
+    // Side Nav Active on Scroll
+    const sections = document.querySelectorAll('h2[id], h3[id]');
+    const navLinks = document.querySelectorAll('.section-nav a');
+
+    function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 150;
+            if (pageYOffset >= sectionTop) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').substring(1) === current) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+</script>
+
+</body>
+</html>
