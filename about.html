@@ -13,17 +13,16 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
-
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'primary-gold': '#CDA434', // Elegant gold for accents
-              'primary-dark': '#1F2937', // Deep gray-blue for backgrounds and text
-              'accent-gold': '#F5E6CA', // Soft gold for highlights
-              'accent-gray': '#F3F4F6', // Warm gray for backgrounds
-              'secondary-blue': '#1D4ED8', // Retained blue for secondary elements
+              'primary-gold': '#CDA434', 
+              'primary-dark': '#1F2937', 
+              'accent-gold': '#F5E6CA', 
+              'accent-gray': '#F3F4F6', 
+              'secondary-blue': '#1D4ED8', 
             },
             fontFamily: {
               sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
@@ -110,11 +109,9 @@
     </style>
   </head>
   <body class="bg-accent-gray font-sans antialiased">
-    <!-- Sticky Navigation Bar -->
       <nav class="sticky top-0 z-50 bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="index.html" class="flex items-center h-16">
                         <div class="h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden">
@@ -122,7 +119,6 @@
                         </div>
                     </a>
                 </div>
-                <!-- Menu Items -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
                         <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
@@ -140,7 +136,6 @@
                         <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
                     </a>
                 </div>
-                <!-- Hamburger Menu -->
                 <div class="md:hidden flex items-center">
                     <button class="hamburger focus:outline-none" aria-label="Toggle menu">
                         <div class="line1 w-6 h-0.5 bg-gray-700 mb-1"></div>
@@ -150,7 +145,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
         <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
             <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
                 <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold">
@@ -171,8 +165,6 @@
             </div>
         </div>
     </nav>
-
-    <!-- Hero Section -->
     <section
       class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-20 overflow-hidden"
     >
@@ -203,7 +195,6 @@
         </div>
       </div>
     </section>
-    <!-- Our Vision & Mission Section -->
     <section id="vision-mission" class="py-16 bg-accent-gray">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
@@ -267,8 +258,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Key Benefits Section -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
@@ -353,8 +342,6 @@
         </div>
       </div>
     </section>
-
-    <!-- What We Do Section -->
     <section class="py-16 bg-accent-gray">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
@@ -463,8 +450,6 @@
         </div>
       </div>
     </section>
-
-    <!-- New Benefits Section -->
     <section class="py-16 bg-accent-gray">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">The Game-Changing Benefits of UbiquePOS for Your Business</h2>
@@ -515,8 +500,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Our Team Section -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2
@@ -534,15 +517,11 @@
     alt="Founder"
     class="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-top"
   />
-
   <h3 class="text-2xl font-bold mb-1 text-primary-dark">Alonge OluwaKorede Matthias</h3>
   <p class="text-gray-600 mb-3 font-medium">Founder • Full‑Stack Laravel & PHP Developer</p>
-
   <p class="text-sm text-gray-500 mb-6 leading-relaxed">
     Tech enthusiast, problem-solver, and full‑stack developer driven to build solutions that empower African businesses. From crafting seamless Laravel applications to streamlining processes with vanilla PHP, I merge innovation with practical execution. My goal is to transform ideas into efficient, scalable systems that make a real impact.
   </p>
-
-  <!-- Portfolio Button -->
   <div class="mb-6">
     <a
       href="#"
@@ -552,8 +531,6 @@
       <span>View My Portfolio</span>
     </a>
   </div>
-
-  <!-- Social Icons -->
   <div class="flex justify-center space-x-4 mb-6">
     <a href="#" class="text-gray-500 hover:text-primary-gold transition">
       <i data-lucide="facebook" class="w-5 h-5"></i>
@@ -571,31 +548,23 @@
       <i data-lucide="message-circle" class="w-5 h-5"></i>
     </a>
   </div>
-
-  <!-- Three Dots -->
   <div class="flex justify-center space-x-2">
     <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
     <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
     <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
   </div>
 </div>
-
-
      <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover text-center" data-aos="fade-up" data-aos-delay="200">
   <img
     src="asset/babe.jpg"
     alt="Marketing Strategist"
     class="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-center"
   />
-
   <h3 class="text-2xl font-bold mb-1 text-primary-dark">Fawekun Aanuoluwapo</h3>
   <p class="text-gray-600 mb-3 font-medium">Co-Founder • Marketing Strategist & Content Creator</p>
-
   <p class="text-sm text-gray-500 mb-6 leading-relaxed">
     A visionary marketing strategist and content creator dedicated to helping businesses gain visibility and growth. She has been the driving force behind our outreach—engaging business owners, following up with prospects, and connecting the right solutions to those ready for true transformation. A refined and God-fearing woman committed to empowering businesses through creativity, strategy, and impact.
   </p>
-
-  <!-- Portfolio / Media Button -->
   <div class="mb-6">
     <a
       href="#"
@@ -605,8 +574,6 @@
       <span>View Her Media Portfolio</span>
     </a>
   </div>
-
-  <!-- Social Icons -->
   <div class="flex justify-center space-x-4 mb-6">
     <a href="#" class="text-gray-500 hover:text-primary-gold transition">
       <i data-lucide="facebook" class="w-5 h-5"></i>
@@ -624,8 +591,6 @@
       <i data-lucide="message-circle" class="w-5 h-5"></i>
     </a>
   </div>
-
-  <!-- Three Dots -->
   <div class="flex justify-center space-x-2">
     <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
     <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
@@ -635,8 +600,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Call to Action Section -->
     <section class="py-16 px-4 sm:px-6">
       <div
         class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl card-hover animate-fade-in"
@@ -660,12 +623,9 @@
         </div>
       </div>
     </section>
-
-    <!-- Main Footer -->
     <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <!-- Logo and Description -->
                 <div>
                     <div class="flex items-center mb-4">
                         <div class="h-12 w-12 rounded-full overflow-hidden mr-4">
@@ -675,7 +635,6 @@
                     </div>
                     <p class="text-sm">From chaos to control: Secure, automate, and thrive with UbiquePOS. End theft, gain insights, and scale effortlessly.</p>
                 </div>
-                <!-- Quick Links -->
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
                     <ul class="space-y-2">
@@ -686,7 +645,6 @@
                         <li><a href="contact.html" class="hover:underline">Contact</a></li>
                     </ul>
                 </div>
-                <!-- Support -->
                 <div>
                     <h3 class="text-xl font-bold mb-4">Support</h3>
                     <ul class="space-y-2">
@@ -696,7 +654,6 @@
                         <li><a href="#" class="hover:underline">Terms of Service</a></li>
                     </ul>
                 </div>
-                <!-- Contact Info -->
                 <div>
                     <h3 class="text-xl font-bold mb-4">Contact Us</h3>
                     <p class="text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
@@ -715,18 +672,16 @@
             </div>
         </div>
     </footer>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 800,
-            once: false, // Allow animations to repeat when scrolling back
-            mirror: true // Animate out when scrolling past
+            once: false, 
+            mirror: true 
         });
     </script>
     <script>
       lucide.createIcons();
-      // Hamburger Menu Toggle
       document
         .querySelector(".hamburger")
         .addEventListener("click", function () {

@@ -4,8 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact Us - UbiquePOS</title>
-
-  <!-- Fonts & Libraries -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -14,8 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
-
-  <!-- Tailwind custom config -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
   <script>
     tailwind.config = {
       theme: {
@@ -42,7 +39,6 @@
       }
     }
   </script>
-
   <style>
     /* small utility CSS kept where Tailwind can't (triangle shape + minor hover polish) */
     .triangle {
@@ -55,12 +51,10 @@
       border-bottom: 150px solid white;
       z-index: 1;
     }
-
     /* hover/transition helpers for non-tailwind properties */
     .card-hover:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 20px -6px rgba(205,164,52,0.18); }
     .btn-hover:hover { transform: scale(1.03); }
     .input-focus:focus { box-shadow: 0 0 0 4px rgba(205,164,52,0.12); outline: none; }
-
     /* small responsive tweak for hero image/triangle on very small screens */
     @media (max-width: 420px) {
       .triangle { border-bottom-width: 90px; }
@@ -68,8 +62,6 @@
   </style>
 </head>
 <body class="bg-accent-gray font-sans antialiased text-primary-dark">
-
-  <!-- NAVBAR -->
   <header class="sticky top-0 z-50 bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
@@ -81,8 +73,6 @@
             <span class="ml-2 font-semibold text-lg hidden sm:inline-block">UbiquePOS</span>
           </a>
         </div>
-
-        <!-- Desktop links -->
         <nav class="hidden md:flex items-center gap-6">
           <a href="index.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold transition"><i data-lucide="home" class="w-4 h-4"></i><span>Home</span></a>
           <a href="about.html" class="flex items-center gap-2 text-primary-gold font-semibold"><i data-lucide="info" class="w-4 h-4"></i><span>About</span></a>
@@ -90,21 +80,15 @@
           <a href="testimonial.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold transition"><i data-lucide="star" class="w-4 h-4"></i><span>Testimonials</span></a>
           <a href="contact.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold transition"><i data-lucide="mail" class="w-4 h-4"></i><span>Contact</span></a>
         </nav>
-
-        <!-- Mobile menu button -->
         <div class="md:hidden">
           <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-gold">
             <span class="sr-only">Open menu</span>
-            <!-- hamburger icon -->
             <svg id="hamburger" class="w-6 h-6 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            <!-- close icon (hidden) -->
             <svg id="close-icon" class="w-6 h-6 text-gray-700 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
     </div>
-
-    <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden hidden bg-white border-t shadow-sm">
       <div class="px-4 py-4 space-y-3">
         <a href="index.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold"><i data-lucide="home" class="w-4 h-4"></i>Home</a>
@@ -115,13 +99,9 @@
       </div>
     </div>
   </header>
-
-  <!-- HERO -->
   <main>
     <section class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white overflow-hidden">
-      <!-- triangle accent (visually sits on top of next section) -->
       <div class="triangle hidden lg:block" aria-hidden="true"></div>
-
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-28 relative z-10">
         <div class="flex flex-col-reverse md:flex-row items-center gap-10">
           <div class="w-full md:w-1/2 text-center md:text-left">
@@ -134,8 +114,6 @@
         </div>
       </div>
     </section>
-
-    <!-- WHY US -->
     <section class="py-12 bg-accent-gray">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl md:text-3xl font-bold text-center text-primary-dark mb-8">Why Reach Out to Us?</h2>
@@ -147,7 +125,6 @@
             <h3 class="text-lg font-semibold mb-2 text-primary-dark text-center">Expert Guidance</h3>
             <p class="text-sm text-gray-600 text-center">Personalized advice for streamlining sales, managing inventory and expanding online.</p>
           </article>
-
           <article class="p-6 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md card-hover" data-aos="zoom-in">
             <div class="flex items-center justify-center mb-4">
               <svg class="h-8 w-8 text-primary-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4"/></svg>
@@ -155,7 +132,6 @@
             <h3 class="text-lg font-semibold mb-2 text-primary-dark text-center">Quick Implementation</h3>
             <p class="text-sm text-gray-600 text-center">Get fully operational in 1–2 days with product import and staff training.</p>
           </article>
-
           <article class="p-6 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md card-hover" data-aos="zoom-in">
             <div class="flex items-center justify-center mb-4">
               <svg class="h-8 w-8 text-primary-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3h18M3 3v18M21 3v18"/></svg>
@@ -166,150 +142,118 @@
         </div>
       </div>
     </section>
-
-    <!-- CONTACT FORM + DETAILS -->
     <section class="py-12 bg-accent-gray">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-2xl md:text-3xl font-bold text-center text-primary-dark mb-8">Get in Touch</h2>
-
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- Form -->
           <div id="contact-form" class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md">
             <h3 class="text-xl font-semibold mb-4">Send Us a Message</h3>
-            <p class="text-sm text-gray-600 mb-4">For the fastest response, reach out via <a href="https://wa.me/2349075148963" target="_blank" class="text-primary-gold hover:underline">WhatsApp</a> or use the form below.</p>
-
+            <p class="text-sm text-gray-600 mb-4">For the fastest response, reach out via <a href="https://wa.me/2348140155828" target="_blank" class="text-primary-gold hover:underline">WhatsApp</a> or use the form below.</p>
             <form id="contact-form-element" action="https://formspree.io/f/mnnnryrw" method="POST" class="space-y-4" novalidate>
               <div>
                 <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                 <input id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Enter your name" />
               </div>
-
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                 <input id="email" type="email" name="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Enter your email" />
               </div>
-
               <div>
                 <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
                 <input id="phone" name="phone" type="tel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Enter your phone number (optional)" />
               </div>
-
               <div>
                 <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                 <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Tell us how we can help"></textarea>
               </div>
-
               <div class="text-center">
                 <button type="submit" class="inline-flex items-center justify-center gap-2 bg-primary-gold text-primary-dark px-5 py-3 rounded-full font-semibold btn-hover shadow">Send Message</button>
               </div>
             </form>
           </div>
-
-          <!-- Contact details -->
-          <aside class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-semibold mb-3">Our Contact Details</h3>
-            <p class="text-sm text-gray-600 mb-4">Reach out to our team for support, inquiries, or to explore how UbiquePOS can transform your business.</p>
-
-            <dl class="space-y-4">
-              <div class="flex gap-3 items-start">
-                <div class="text-2xl text-primary-gold">📧</div>
-                <div>
-                  <dt class="text-sm font-semibold text-primary-dark">Email</dt>
-                  <dd class="text-sm"><a href="mailto:mickyalonge@gmail.com" class="text-primary-gold hover:underline">mickyalonge@gmail.com</a></dd>
-                  <dd class="text-sm"><a href="mailto:koredealonge38@gmail.com" class="text-primary-gold hover:underline">koredealonge38@gmail.com</a></dd>
-                </div>
-              </div>
-
-              <div class="flex gap-3 items-start">
-                <div class="text-2xl text-primary-gold">📞</div>
-                <div>
-                  <dt class="text-sm font-semibold text-primary-dark">Phone</dt>
-                  <dd class="text-sm"><a href="tel:+2349075148963" class="text-primary-gold hover:underline">+234 907 514 8963</a> &nbsp;|&nbsp; <a href="https://wa.me/2349075148963" class="text-primary-gold hover:underline" target="_blank">WhatsApp</a></dd>
-                  <dd class="text-sm"><a href="tel:+2348137788406" class="text-primary-gold hover:underline">+234 813 778 8406</a> &nbsp;|&nbsp; <a href="https://wa.me/2348137788406" class="text-primary-gold hover:underline" target="_blank">WhatsApp</a></dd>
-                </div>
-              </div>
-
-              <div class="flex gap-3 items-start">
-                <div class="text-2xl text-primary-gold">🌍</div>
-                <div>
-                  <dt class="text-sm font-semibold text-primary-dark">Portfolio</dt>
-                  <dd class="text-sm"><a href="https://folio-two-blush.vercel.app/" class="text-primary-gold hover:underline" target="_blank">folio-two-blush.vercel.app</a></dd>
-                </div>
-              </div>
-
-              <div class="flex gap-3 items-start">
-                <div class="text-2xl text-primary-gold">📍</div>
-                <div>
-                  <dt class="text-sm font-semibold text-primary-dark">Address</dt>
-                  <dd class="text-sm text-gray-600">House 1, Moferere Street, Ado-Ekiti</dd>
-                </div>
-              </div>
-            </dl>
-          </aside>
+        <aside class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md">
+  <h3 class="text-xl font-semibold mb-3">Contact & Support</h3>
+  <p class="text-sm text-gray-600 mb-6">
+    Reach out to our team for support, inquiries, or to explore how UbiquePOS can transform your business.
+  </p>
+  <dl class="space-y-4">
+    <div class="flex gap-3 items-start">
+      <div class="text-2xl text-primary-gold">📧</div>
+      <div>
+        <dt class="text-sm font-semibold text-primary-dark">Email</dt>
+        <dd class="text-sm">
+          <a href="mailto:mickyalonge@gmail.com" class="text-primary-gold hover:underline">mickyalonge@gmail.com</a>
+        </dd>
+        <dd class="text-sm">
+          <a href="mailto:koredealonge38@gmail.com" class="text-primary-gold hover:underline">koredealonge38@gmail.com</a>
+        </dd>
+      </div>
+    </div>
+<div class="flex gap-3 items-start">
+  <div class="text-2xl text-primary-gold">📞</div>
+  <div>
+    <dt class="text-sm font-semibold text-primary-dark">Phone & WhatsApp</dt>
+    <dd class="text-sm flex flex-col gap-1">
+      <span>
+        <a href="tel:+2348140155828" class="text-primary-gold hover:underline">+234 814 401 5828</a> | 
+        <a href="https://wa.me/2348140155828" target="_blank" class="text-primary-gold hover:text-green-500 text-3xl">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </span>
+      <span>
+        <a href="tel:+2348137788406" class="text-primary-gold hover:underline">+234 813 778 8406</a> | 
+        <a href="https://wa.me/2348137788406" target="_blank" class="text-primary-gold hover:text-green-500 text-3xl">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </span>
+    </dd>
+  </div>
+</div>
+    <div class="flex gap-3 items-start">
+      <div class="text-2xl text-primary-gold">💬</div>
+      <div>
+        <dt class="text-sm font-semibold text-primary-dark">Support</dt>
+        <dd class="text-sm">Round-the-clock support to assist businesses whenever required, ensuring seamless operations and guidance.</dd>
+      </div>
+    </div>
+   <div class="flex gap-3 items-start">
+  <div class="text-primary-gold">
+    <dt class="text-sm font-semibold text-primary-dark">Social</dt>
+    <dd class="flex space-x-4 mt-1">
+      <a href="https://twitter.com/yourhandle" target="_blank" class="hover:text-blue-500">
+        <i data-lucide="twitter" class="w-6 h-6"></i>
+      </a>
+      <a href="https://linkedin.com/company/yourcompany" target="_blank" class="hover:text-blue-700">
+        <i data-lucide="linkedin" class="w-6 h-6"></i>
+      </a>
+      <a href="https://facebook.com/yourpage" target="_blank" class="hover:text-blue-600">
+        <i data-lucide="facebook" class="w-6 h-6"></i>
+      </a>
+      <a href="https://instagram.com/yourhandle" target="_blank" class="hover:text-pink-500">
+        <i data-lucide="instagram" class="w-6 h-6"></i>
+      </a>
+    </dd>
+  </div>
+</div>
+    <div class="flex gap-3 items-start">
+      <div class="text-2xl text-primary-gold">❓</div>
+      <div>
+        <dt class="text-sm font-semibold text-primary-dark">Help Center</dt>
+        <dd class="text-sm"><a href="faq.html" class="text-primary-gold hover:underline">Visit our FAQ & Knowledge Base</a> for guidance and tutorials.</dd>
+      </div>
+    </div>
+    <div class="flex gap-3 items-start">
+      <div class="text-2xl text-primary-gold">⏰</div>
+      <div>
+        <dt class="text-sm font-semibold text-primary-dark">Business Hours</dt>
+        <dd class="text-sm">Our team is available 24/7 to respond to inquiries and support requests.</dd>
+      </div>
+    </div>
+  </dl>
+</aside>
         </div>
       </div>
     </section>
-
-    <!-- FAQ -->
-   <section class="py-12 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-2xl md:text-3xl font-bold text-primary-dark text-center mb-8">
-      Frequently Asked Questions
-    </h2>
-
-    <div class="space-y-4">
-
-      <!-- FAQ 1 -->
-      <div class="p-5 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md">
-        <button class="w-full text-left faq-toggle flex justify-between items-center" type="button" aria-expanded="false">
-          <span class="text-lg font-semibold text-primary-dark">What is UbiquePOS?</span>
-          <span class="text-2xl text-primary-gold faq-indicator">+</span>
-        </button>
-        <div class="faq-answer mt-3 text-sm text-gray-600 hidden">
-          UbiquePOS is a cloud-based point-of-sale system designed to automate business operations, prevent theft, and provide real-time insights.
-        </div>
-      </div>
-
-      <!-- FAQ 2 -->
-      <div class="p-5 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md">
-        <button class="w-full text-left faq-toggle flex justify-between items-center" type="button" aria-expanded="false">
-          <span class="text-lg font-semibold text-primary-dark">
-            How does UbiquePOS prevent theft?
-          </span>
-          <span class="text-2xl text-primary-gold faq-indicator">+</span>
-        </button>
-        <div class="faq-answer mt-3 text-sm text-gray-600 hidden">
-          By enforcing accountability—no sales without stock updates, role-based access control, and detailed audit logs.
-        </div>
-      </div>
-
-      <!-- FAQ 3 -->
-      <div class="p-5 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md">
-        <button class="w-full text-left faq-toggle flex justify-between items-center" type="button" aria-expanded="false">
-          <span class="text-lg font-semibold text-primary-dark">
-            Can UbiquePOS work offline?
-          </span>
-          <span class="text-2xl text-primary-gold faq-indicator">+</span>
-        </button>
-        <div class="faq-answer mt-3 text-sm text-gray-600 hidden">
-          Yes, UbiquePOS supports offline transactions that sync automatically once the internet connection is restored.
-        </div>
-      </div>
-
-    </div>
-
-    <!-- View More Button -->
-    <div class="text-center mt-8">
-      <a href="faq.html"
-         class="inline-block bg-primary-dark text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-primary-gold transition">
-        View More FAQs
-      </a>
-    </div>
-
-  </div>
-</section>
-
-    <!-- CTA -->
     <section class="py-12 px-4 sm:px-6">
       <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl p-6 text-center">
         <h3 class="text-2xl md:text-3xl font-bold mb-4">Ready to Grow Smarter?</h3>
@@ -318,8 +262,6 @@
       </div>
     </section>
   </main>
-
-  <!-- FOOTER -->
   <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -332,7 +274,6 @@
           </div>
           <p class="text-sm">From chaos to control: Secure, automate, and thrive with UbiquePOS.</p>
         </div>
-
         <div>
           <h4 class="font-semibold mb-2">Quick Links</h4>
           <ul class="space-y-2 text-sm">
@@ -343,7 +284,6 @@
             <li><a href="contact.html" class="hover:underline">Contact</a></li>
           </ul>
         </div>
-
         <div>
           <h4 class="font-semibold mb-2">Support</h4>
           <ul class="space-y-2 text-sm">
@@ -353,7 +293,6 @@
             <li><a href="#" class="hover:underline">Terms of Service</a></li>
           </ul>
         </div>
-
         <div>
           <h4 class="font-semibold mb-2">Contact</h4>
           <p class="text-sm">Alonge OluwaKorede Matthias<br/>Freelance PHP Developer</p>
@@ -362,29 +301,20 @@
           <p class="text-sm mt-2"><a href="https://folio-two-blush.vercel.app/" class="hover:underline">folio-two-blush.vercel.app</a></p>
         </div>
       </div>
-
       <div class="mt-8 text-center text-sm border-t border-white/20 pt-4">&copy; 2025 UbiquePOS. All rights reserved.</div>
     </div>
   </footer>
-
-  <!-- SCRIPTS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // Initialize AOS (if present)
     if (window.AOS) AOS.init({ duration: 700, once: false, mirror: true });
-
-    // Initialize lucide icons safely
     if (window.lucide && typeof lucide.createIcons === 'function') {
       lucide.createIcons();
     }
-
-    // Mobile nav toggle
     (function () {
       const btn = document.getElementById('nav-toggle');
       const menu = document.getElementById('mobile-menu');
       const hamburger = document.getElementById('hamburger');
       const closeIcon = document.getElementById('close-icon');
-
       if (!btn || !menu) return;
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
@@ -394,8 +324,6 @@
         closeIcon.classList.toggle('hidden');
       });
     })();
-
-    // FAQ toggles (progressive enhancement)
     document.querySelectorAll('.faq-toggle').forEach(btn => {
       btn.addEventListener('click', () => {
         const answer = btn.parentElement.querySelector('.faq-answer');
@@ -406,26 +334,21 @@
         if (indicator) indicator.textContent = expanded ? '+' : '−';
       });
     });
-
-    // Form submission logic (kept client-side validation and Toastify)
     document.getElementById('contact-form-element')?.addEventListener('submit', async function (e) {
       e.preventDefault();
       const form = this;
       const name = (form.querySelector('#name')?.value || '').trim();
       const email = (form.querySelector('#email')?.value || '').trim();
       const message = (form.querySelector('#message')?.value || '').trim();
-
       if (!name || !email || !message) {
         Toastify({ text: "Please fill required fields", duration: 2500, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
         return;
       }
-
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         Toastify({ text: "Please enter a valid email", duration: 2500, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
         return;
       }
-
       try {
         const fd = new FormData(form);
         const res = await fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
