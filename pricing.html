@@ -181,6 +181,7 @@
             opacity: 0;
             transition: opacity 0.4s;
             border-radius: inherit;
+            pointer-events: none;
         }
         .feature-card:hover::after {
             opacity: 1;
@@ -369,7 +370,7 @@
         .faq-item.open .faq-answer {
             display: block;
             opacity: 1;
-            max-height: 200px;
+            max-height: 500px;
         }
         .faq-answer {
             display: none;
@@ -874,13 +875,16 @@
             <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 max-w-3xl mx-auto fade-in-up delay-1" data-aos="fade-up">
                 <h3 class="text-2xl font-bold text-primary mb-3">Payment Terms</h3>
                 <p class="text-gray-600 mb-6">
-                    Year 1 includes full payment upfront for the selected subscription plan, billing cycle, setup, and domain/hosting package. From Year 2 onwards, renew only domain, hosting, and a <span class="font-semibold">₦30,000 annual maintenance fee</span> (covers software updates, bug fixes, improvements, and ongoing support). Payments are made securely via <span class="font-semibold">bank transfer</span>. Each subscription applies to your business with multi-branch support.
+                    Access will be paused until a new plan is assigned or renewed.
                 </p>
                 <div class="text-center">
-                    <a href="asset/proposal.pdf" download class="inline-flex items-center px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-light transition">
-                        <i data-lucide="download" class="w-5 h-5 mr-2"></i>
-                        Download Business Proposal
-                    </a>
+                  <a href="asset/proposal.pdf"
+   download
+   class="relative z-10 pointer-events-auto inline-flex items-center px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-light transition">
+    <i data-lucide="download" class="w-5 h-5 mr-2"></i>
+    Download Business Proposal
+</a>
+
                     <p class="mt-2 text-sm text-gray-500">PDF format – secure and easy to read</p>
                 </div>
             </div>
@@ -912,7 +916,7 @@
                 </h2>
             </div>
             <div class="space-y-4">
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-up" data-aos-delay="100">
+                <div class="faq-item feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex justify-between items-center faq-toggle cursor-pointer">
                         <h3 class="text-xl font-bold text-primary">Can I change my plan?</h3>
                         <span class="text-2xl text-gold">+</span>
@@ -921,7 +925,7 @@
                         <p>Plans are set by the developer. Contact support if you need to upgrade or switch.</p>
                     </div>
                 </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-item feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex justify-between items-center faq-toggle cursor-pointer">
                         <h3 class="text-xl font-bold text-primary">What happens if my subscription expires?</h3>
                         <span class="text-2xl text-gold">+</span>
@@ -930,7 +934,7 @@
                         <p>Access will be paused until a new plan is assigned or renewed.</p>
                     </div>
                 </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="faq-item feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="flex justify-between items-center faq-toggle cursor-pointer">
                         <h3 class="text-xl font-bold text-primary">How many branches are covered?</h3>
                         <span class="text-2xl text-gold">+</span>
@@ -939,7 +943,7 @@
                         <p>Each subscription includes multi-branch support. Add according to your plan via the register branch view.</p>
                     </div>
                 </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="faq-item feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="flex justify-between items-center faq-toggle cursor-pointer">
                         <h3 class="text-xl font-bold text-primary">What are the renewal costs?</h3>
                         <span class="text-2xl text-gold">+</span>
@@ -948,7 +952,7 @@
                         <p>From Year 2, renewals include domain/hosting (e.g., ₦48,999 for .com.ng) plus a ₦30,000 maintenance fee.</p>
                     </div>
                 </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-5" data-aos="fade-up" data-aos-delay="500">
+                <div class="faq-item feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-5" data-aos="fade-up" data-aos-delay="500">
                     <div class="flex justify-between items-center faq-toggle cursor-pointer">
                         <h3 class="text-xl font-bold text-primary">Is there a free trial?</h3>
                         <span class="text-2xl text-gold">+</span>
@@ -957,7 +961,7 @@
                         <p>Yes, enjoy a 7-day free trial with full POS features to test UbiquePOS risk-free.</p>
                     </div>
                 </div>
-                <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="faq-item feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="flex justify-between items-center faq-toggle cursor-pointer">
                         <h3 class="text-xl font-bold text-primary">What support is included?</h3>
                         <span class="text-2xl text-gold">+</span>
@@ -967,8 +971,15 @@
                     </div>
                 </div>
             </div>
+            <div class="text-center mt-12">
+    <a href="faq.html"
+       class="relative z-10 inline-flex items-center px-8 py-4 bg-accent text-white rounded-xl font-semibold hover:bg-accent-light transition shadow-lg">
+        View All FAQs
+    </a>
+</div>
+
         </div>
-    </section>
+           </section>
     <!-- Footer -->
     <footer class="bg-primary text-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1053,7 +1064,7 @@
             item.addEventListener("click", function () {
                 const faqItem = this.parentElement;
                 const isOpen = faqItem.classList.contains("open");
-                document.querySelectorAll(".feature-card").forEach((i) => {
+                document.querySelectorAll(".faq-item").forEach((i) => {
                     i.classList.remove("open");
                     i.querySelector(".faq-toggle span").textContent = "+";
                 });

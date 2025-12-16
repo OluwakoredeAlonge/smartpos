@@ -368,34 +368,24 @@
             transition: all 0.3s ease;
         }
         .testimonial-full {
-            display: none;
+            max-height: 0;
+            opacity: 0;
             overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
         }
         .testimonial-full.open {
-            display: block;
-            animation: expand 0.3s ease-out;
+            max-height: 500px;
+            opacity: 1;
         }
-       /* Corrected expand animation */
-@keyframes expand {
-    0% {
-        height: 0;
-        opacity: 0;
-    }
-    100% {
-        height: 200px; /* or whatever fixed height your element needs */
-        opacity: 1;
-    }
-}
-
-/* image float animation is fine */
-@keyframes image-float {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-10px) scale(1.02);
-    }
-}
+        /* image float animation is fine */
+        @keyframes image-float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.02);
+            }
+        }
 
         .hero-image {
             animation: image-float 6s ease-in-out infinite;
@@ -403,6 +393,56 @@
         }
         .hero-image:hover {
             transform: scale(1.05);
+        }
+        /* Media queries for better responsiveness on small devices */
+        @media (max-width: 640px) {
+            .orb {
+                filter: blur(30px);
+            }
+            .orb-1 {
+                width: 300px;
+                height: 300px;
+                top: -150px;
+                left: -50px;
+            }
+            .orb-2 {
+                width: 250px;
+                height: 250px;
+                top: 15%;
+                right: -75px;
+            }
+            .orb-3 {
+                width: 350px;
+                height: 350px;
+                bottom: -150px;
+                left: 10%;
+            }
+            .bubble {
+                width: 20px !important;
+                height: 20px !important;
+            }
+            .hero-section {
+                min-height: auto;
+                padding-top: 4rem;
+                padding-bottom: 4rem;
+            }
+            h1 {
+                font-size: 2.25rem; /* Adjust large headings for mobile */
+            }
+            p.text-lg {
+                font-size: 1rem;
+            }
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+            }
+            .demo-badge {
+                top: 10px;
+                right: 10px;
+            }
+            .wave-divider svg {
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -464,7 +504,7 @@
         </div>
     </nav>
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary">
+    <section class="hero-section relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary md:min-h-screen">
         <!-- Animated Background -->
         <div class="gradient-bg">
             <div class="orb orb-1"></div>
@@ -527,59 +567,100 @@
         </div>
     </section>
     <!-- Submit Testimonial Section -->
-    <section id="submit-testimonial" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
-                    Share Your <span class="gradient-text">Experience</span>
-                </h2>
+  <section id="submit-testimonial" class="py-20 bg-white relative z-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                Share Your <span class="gradient-text">Experience</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Form -->
+            <div class="feature-card relative z-10 bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-2xl font-bold text-primary mb-6">
+                    Submit Your Testimonial
+                </h3>
+
+                <form class="space-y-6 relative z-10">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">
+                            Name
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition pointer-events-auto"
+                            placeholder="Enter your name"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">
+                            Email
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition pointer-events-auto"
+                            placeholder="Enter your email"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">
+                            Phone Number
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition pointer-events-auto"
+                            placeholder="Enter your phone number"
+                        >
+                    </div>
+
+                    <div>
+                        <label for="testimonial" class="block text-sm font-medium text-gray-700">
+                            Your Testimonial
+                        </label>
+                        <textarea
+                            id="testimonial"
+                            rows="5"
+                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition pointer-events-auto"
+                            placeholder="Share your experience with UbiquePOS"
+                        ></textarea>
+                    </div>
+
+                    <div class="text-center">
+                        <button
+                            type="button"
+                            disabled
+                            class="px-6 py-3 bg-accent text-white rounded-lg font-semibold opacity-50 cursor-not-allowed"
+                        >
+                            Coming Soon
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-right">
-                    <h3 class="text-2xl font-bold text-primary mb-6">Submit Your Testimonial</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" placeholder="Enter your name" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" placeholder="Enter your email" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                            <input type="tel" id="phone" placeholder="Enter your phone number" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition">
-                        </div>
-                        <div>
-                            <label for="testimonial" class="block text-sm font-medium text-gray-700">Your Testimonial</label>
-                            <textarea id="testimonial" rows="5" placeholder="Share your experience with UbiquePOS" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button class="btn-primary px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-light transition opacity-50 cursor-not-allowed" disabled>
-                                Coming Soon
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div data-aos="fade-left">
-                    <h3 class="text-2xl font-bold text-primary mb-6">What Our Customers Say</h3>
-                    <div class="space-y-6">
-                        <div class="feature-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1 testimonial-card" data-testimonial-id="1" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="testimonial-full" data-testimonial-id="1">
-                                <p class="text-gray-600 mb-4">“As a school owner, preparing for the new academic session used to be stressful, especially managing book sales. UbiquePOS has completely transformed this process. The receipt printing feature is a lifesaver — parents appreciate the professionalism, and I’m grateful to have discovered this app.”</p>
-                            </div>
-                            <div class="flex items-center">
-                                <div>
-                                    <h4 class="font-semibold text-primary">Mrs. Oyekemi</h4>
-                                    <p class="text-sm text-gray-500">School Owner</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <!-- Testimonials -->
+            <div class="feature-card relative z-10 bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                <h3 class="text-2xl font-bold text-primary mb-6">
+                    What Our Customers Say
+                </h3>
+
+                <p class="text-gray-600 mb-4">
+                    “As a school owner, preparing for the new academic session used to be stressful,
+                    especially managing book sales. UbiquePOS has completely transformed this process.”
+                </p>
+
+                <h4 class="font-semibold text-primary">Mrs. Oyekemi</h4>
+                <p class="text-sm text-gray-500">School Owner</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-br from-primary via-primary-light to-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
