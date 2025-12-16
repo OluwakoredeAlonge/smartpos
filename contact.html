@@ -1,366 +1,800 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact Us - UbiquePOS</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary-gold': '#CDA434',
-            'primary-dark': '#1F2937',
-            'accent-gold': '#F5E6CA',
-            'accent-gray': '#F3F4F6',
-            'secondary-blue': '#1D4ED8'
-          },
-          fontFamily: {
-            sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.5s ease-out',
-            'slide-in': 'slideIn 0.3s ease-out'
-          },
-          keyframes: {
-            fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
-            slideIn: { '0%': { transform: 'translateX(100%)' }, '100%': { transform: 'translateX(0)' } }
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact UbiquePOS: Get in touch for demos, support, or inquiries. End theft, automate your business, and scale effortlessly.">
+    <meta property="og:title" content="Contact Us - UbiquePOS">
+    <meta property="og:description"
+        content="Reach out to our team for personalized guidance. We're here to help you transform your business.">
+    <meta property="og:image" content="https://yourdomain.com/asset/home.png">
+    <meta property="og:url" content="https://yourdomain.com/contact.html">
+    <meta property="og:type" content="website">
+    <title>Contact Us - UbiquePOS: Let's Connect and Grow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0A2540',
+                        'primary-light': '#1A3A5C',
+                        'accent': '#635BFF',
+                        'accent-light': '#7A73FF',
+                        'gold': '#FFB800',
+                        'gold-light': '#FFC933',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    /* small utility CSS kept where Tailwind can't (triangle shape + minor hover polish) */
-    .triangle {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-left: 100vw solid transparent;
-      border-bottom: 150px solid white;
-      z-index: 1;
-    }
-    /* hover/transition helpers for non-tailwind properties */
-    .card-hover:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 12px 20px -6px rgba(205,164,52,0.18); }
-    .btn-hover:hover { transform: scale(1.03); }
-    .input-focus:focus { box-shadow: 0 0 0 4px rgba(205,164,52,0.12); outline: none; }
-    /* small responsive tweak for hero image/triangle on very small screens */
-    @media (max-width: 420px) {
-      .triangle { border-bottom-width: 90px; }
-    }
-  </style>
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+        /* Animated Background Gradient Orbs */
+        .gradient-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float-orb 25s infinite ease-in-out;
+        }
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 91, 255, 0.4), transparent);
+            top: -250px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 184, 0, 0.3), transparent);
+            top: 20%;
+            right: -150px;
+            animation-delay: 5s;
+        }
+        .orb-3 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 91, 255, 0.3), transparent);
+            bottom: -300px;
+            left: 30%;
+            animation-delay: 10s;
+        }
+        @keyframes float-orb {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(100px, -100px) scale(1.1);
+            }
+            66% {
+                transform: translate(-50px, 50px) scale(0.9);
+            }
+        }
+        /* Floating Bubbles - More, smaller, colored subtly */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            animation: rise 15s infinite ease-in; /* Faster for more movement */
+            opacity: 0.2; /* Subtle visibility */
+        }
+        /* Alternate colors based on theme */
+        .bubble:nth-child(odd) {
+            background: rgba(99, 91, 255, 0.3); /* Light accent purple */
+        }
+        .bubble:nth-child(even) {
+            background: rgba(255, 184, 0, 0.2); /* Light gold */
+        }
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+                transform: translateX(0) scale(0.5);
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% {
+                bottom: 120%;
+                opacity: 0;
+                transform: translateX(100px) scale(1); /* Less extreme movement */
+            }
+        }
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #635BFF 0%, #FFB800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Glass Morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        /* Button Animations */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .btn-primary:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(99, 91, 255, 0.4);
+        }
+        /* Card Hover Effects */
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 91, 255, 0.1), rgba(255, 184, 0, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+            border-radius: inherit;
+        }
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        /* Fade In Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        /* Pulse Animation */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #FFB800;
+            animation: pulse-ring 2s infinite;
+        }
+        /* Image Overlay Animation */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .demo-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            animation: float-badge 3s ease-in-out infinite;
+        }
+        @keyframes float-badge {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.05);
+            }
+        }
+        /* Hamburger Menu */
+        .hamburger div {
+            transition: all 0.3s ease;
+        }
+        .hamburger.open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open .line2 {
+            opacity: 0;
+        }
+        .hamburger.open .line3 {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Section Divider */
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        @media (min-width: 768px) {
+            .wave-divider svg {
+                height: 100px;
+            }
+        }
+        /* Responsive Tables */
+        @media (max-width: 767px) {
+            .responsive-table thead {
+                display: none;
+            }
+            .responsive-table tr {
+                display: block;
+                margin-bottom: 1rem;
+                border-radius: 0.5rem;
+                overflow: hidden;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            }
+            .responsive-table td {
+                display: block;
+                text-align: right;
+                padding: 0.75rem 1rem;
+                position: relative;
+                border-bottom: 1px solid #f3f4f6;
+            }
+            .responsive-table td:last-child {
+                border-bottom: none;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                font-weight: 600;
+                text-align: left;
+            }
+        }
+        .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 100vw solid transparent;
+            border-bottom: 80px solid white;
+            z-index: 1;
+        }
+        @media (min-width: 768px) {
+            .triangle {
+                border-bottom-width: 150px;
+            }
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(205, 164, 52, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
+        }
+        .img-hover:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+        .animated-card {
+            transition: all 0.3s ease;
+        }
+        .animated-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 25px rgba(205, 164, 52, 0.3);
+        }
+        .input-focus:focus { box-shadow: 0 0 0 4px rgba(205,164,52,0.12); outline: none; }
+        @media (max-width: 420px) {
+            .triangle { border-bottom-width: 90px; }
+        }
+        @keyframes image-float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.02); }
+        }
+        .hero-image {
+            animation: image-float 6s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-<body class="bg-accent-gray font-sans antialiased text-primary-dark">
-  <header class="sticky top-0 z-50 bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center gap-3">
-          <a href="index.html" class="flex items-center">
-              <div class="h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden">
+<body class="font-sans antialiased">
+   <nav class="sticky top-0 z-50 bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center h-16">
+                        <div class="h-12 w-12 md:h-14 md:w-14 rounded-full overflow-hidden">
                             <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover scale-150">
                         </div>
-          </a>
-        </div>
-        <nav class="hidden md:flex items-center gap-6">
-          <a href="index.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold transition"><i data-lucide="home" class="w-4 h-4"></i><span>Home</span></a>
-          <a href="about.html" class="flex items-center gap-2 text-primary-gold font-semibold"><i data-lucide="info" class="w-4 h-4"></i><span>About</span></a>
-          <a href="pricing.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold transition"><i data-lucide="dollar-sign" class="w-4 h-4"></i><span>Pricing</span></a>
-          <a href="testimonial.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold transition"><i data-lucide="star" class="w-4 h-4"></i><span>Testimonials</span></a>
-          <a href="contact.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold transition"><i data-lucide="mail" class="w-4 h-4"></i><span>Contact</span></a>
-        </nav>
-        <div class="md:hidden">
-          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-gold">
-            <span class="sr-only">Open menu</span>
-            <svg id="hamburger" class="w-6 h-6 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            <svg id="close-icon" class="w-6 h-6 text-gray-700 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t shadow-sm">
-      <div class="px-4 py-4 space-y-3">
-        <a href="index.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold"><i data-lucide="home" class="w-4 h-4"></i>Home</a>
-        <a href="pricing.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold"><i data-lucide="dollar-sign" class="w-4 h-4"></i>Pricing</a>
-        <a href="testimonial.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold"><i data-lucide="star" class="w-4 h-4"></i>Testimonials</a>
-        <a href="contact.html" class="flex items-center gap-2 text-gray-700 hover:text-primary-gold"><i data-lucide="mail" class="w-4 h-4"></i>Contact</a>
-        <a href="about.html" class="flex items-center gap-2 text-primary-gold font-semibold"><i data-lucide="info" class="w-4 h-4"></i>About</a>
-      </div>
-    </div>
-  </header>
-  <main>
-    <section class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white overflow-hidden">
-      <div class="triangle hidden lg:block" aria-hidden="true"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-28 relative z-10">
-        <div class="flex flex-col-reverse md:flex-row items-center gap-10">
-          <div class="w-full md:w-1/2 text-center md:text-left">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">Connect with UbiquePOS</h1>
-            <p class="mt-4 text-base sm:text-lg md:text-xl text-accent-gold/95 max-w-xl mx-auto md:mx-0">Ready to eliminate bottlenecks, boost profitability, and scale to e-commerce? Reach out today—our team responds within 24 hours to help you achieve 50% faster checkouts, 20% reduced inventory waste, and ROI in under 6 months.</p>
-            <div class="mt-6">
-              <a href="#contact-form" class="inline-block bg-primary-gold text-primary-dark px-5 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover">Contact Us Now</a>
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
+                        <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                    </a>
+                    <a href="about.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
+                        <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                    </a>
+                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
+                        <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                    </a>
+                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
+                        <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                    </a>
+                    <a href="contact.html" class="flex items-center text-gold font-semibold">
+                        <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="hamburger focus:outline-none" aria-label="Toggle menu">
+                        <div class="line1 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line2 w-6 h-0.5 bg-gray-700 mb-1"></div>
+                        <div class="line3 w-6 h-0.5 bg-gray-700"></div>
+                    </button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+        <div class="mobile-menu md:hidden bg-white shadow-lg">
+            <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
+                <a href="index.html" class="flex items-center text-gray-700 hover:text-gold">
+                    <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
+                </a>
+                <a href="about.html" class="flex items-center text-gray-700 hover:text-gold">
+                    <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
+                </a>
+                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-gold">
+                    <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
+                </a>
+                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-gold">
+                    <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
+                </a>
+                <a href="contact.html" class="flex items-center text-gold font-semibold">
+                    <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary">
+        <!-- Animated Background -->
+        <div class="gradient-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+        <!-- More Floating Bubbles - Smaller, colored -->
+        <div class="bubble" style="width: 30px; height: 30px; left: 5%; animation-delay: 0s;"></div>
+        <div class="bubble" style="width: 40px; height: 40px; left: 15%; animation-delay: 1s;"></div>
+        <div class="bubble" style="width: 25px; height: 25px; left: 25%; animation-delay: 2s;"></div>
+        <div class="bubble" style="width: 35px; height: 35px; left: 35%; animation-delay: 3s;"></div>
+        <div class="bubble" style="width: 20px; height: 20px; left: 45%; animation-delay: 4s;"></div>
+        <div class="bubble" style="width: 45px; height: 45px; left: 55%; animation-delay: 5s;"></div>
+        <div class="bubble" style="width: 28px; height: 28px; left: 65%; animation-delay: 6s;"></div>
+        <div class="bubble" style="width: 32px; height: 32px; left: 75%; animation-delay: 7s;"></div>
+        <div class="bubble" style="width: 38px; height: 38px; left: 85%; animation-delay: 8s;"></div>
+        <div class="bubble" style="width: 22px; height: 22px; left: 95%; animation-delay: 9s;"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Left Content -->
+                <div class="text-white fade-in-up">
+                    <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm mb-6 delay-1 fade-in-up">
+                        <span class="text-gold">🚀</span> Connect with Us
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight delay-2 fade-in-up">
+                        Get in Touch: <span class="gradient-text">We're Here to Help</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 delay-3 fade-in-up">
+                        Ready to eliminate bottlenecks, boost profitability, and scale to e-commerce? Reach out today—our team responds within 24 hours to help you achieve 50% faster checkouts, 20% reduced inventory waste, and ROI in under 6 months.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 delay-4 fade-in-up">
+                        <a href="#contact-form" class="btn-primary px-6 py-3 bg-accent text-white rounded-lg font-semibold text-center relative z-10">
+                            Contact Us Now
+                        </a>
+                    </div>
+                </div>
+                <!-- Right Content - Image with Demo Badge and Animation -->
+                <div class="relative delay-6 fade-in-up">
+                    <div class="image-container">
+                        <!-- Demo Badge with Pulse Animation -->
+                        <div class="demo-badge">
+                            <div class="relative">
+                                <div class="pulse-ring"></div>
+                                <a href="#contact" class="relative flex items-center space-x-2 px-6 py-3 bg-gold text-primary rounded-full font-bold shadow-2xl hover:bg-gold-light transition">
+                                    <span>🎁</span>
+                                    <span>7-Day Free Trial</span>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="asset/home.png" alt="UbiquePOS Dashboard" class="rounded-2xl shadow-2xl w-full hero-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
+            </svg>
+        </div>
     </section>
-    <section class="py-12 bg-accent-gray">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-primary-dark mb-8">Why Reach Out to Us?</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <article class="p-6 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md card-hover" data-aos="zoom-in">
-            <div class="flex items-center justify-center mb-4">
-              <svg class="h-8 w-8 text-primary-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+    <!-- Why Reach Out Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    Why <span class="gradient-text">Reach Out</span> to Us?
+                </h2>
             </div>
-            <h3 class="text-lg font-semibold mb-2 text-primary-dark text-center">Expert Guidance</h3>
-            <p class="text-sm text-gray-600 text-center">Personalized advice for streamlining sales, managing inventory and expanding online.</p>
-          </article>
-          <article class="p-6 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md card-hover" data-aos="zoom-in">
-            <div class="flex items-center justify-center mb-4">
-              <svg class="h-8 w-8 text-primary-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4"/></svg>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Expert Guidance</h3>
+                    <p class="text-gray-600">
+                        Personalized advice for streamlining sales, managing inventory and expanding online.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="rocket" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Quick Implementation</h3>
+                    <p class="text-gray-600">
+                        Get fully operational in 1–2 days with product import and staff training.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Proven Results</h3>
+                    <p class="text-gray-600">
+                        Faster sales, real-time insights and remote monitoring bring peace of mind.
+                    </p>
+                </div>
             </div>
-            <h3 class="text-lg font-semibold mb-2 text-primary-dark text-center">Quick Implementation</h3>
-            <p class="text-sm text-gray-600 text-center">Get fully operational in 1–2 days with product import and staff training.</p>
-          </article>
-          <article class="p-6 rounded-xl bg-gradient-to-br from-accent-gold to-white shadow-md card-hover" data-aos="zoom-in">
-            <div class="flex items-center justify-center mb-4">
-              <svg class="h-8 w-8 text-primary-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3h18M3 3v18M21 3v18"/></svg>
-            </div>
-            <h3 class="text-lg font-semibold mb-2 text-primary-dark text-center">Proven Results</h3>
-            <p class="text-sm text-gray-600 text-center">Faster sales, real-time insights and remote monitoring bring peace of mind.</p>
-          </article>
         </div>
-      </div>
     </section>
-    <section class="py-12 bg-accent-gray">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-2xl md:text-3xl font-bold text-center text-primary-dark mb-8">Get in Touch</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div id="contact-form" class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-semibold mb-4">Send Us a Message</h3>
-            <p class="text-sm text-gray-600 mb-4">For the fastest response, reach out via <a href="https://wa.me/2348140155828" target="_blank" class="text-primary-gold hover:underline">WhatsApp</a> or use the form below.</p>
-            <form id="contact-form-element" action="https://formspree.io/f/mnnnryrw" method="POST" class="space-y-4" novalidate>
-              <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                <input id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Enter your name" />
-              </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input id="email" type="email" name="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Enter your email" />
-              </div>
-              <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                <input id="phone" name="phone" type="tel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Enter your phone number (optional)" />
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md bg-white input-focus" placeholder="Tell us how we can help"></textarea>
-              </div>
-              <div class="text-center">
-                <button type="submit" class="inline-flex items-center justify-center gap-2 bg-primary-gold text-primary-dark px-5 py-3 rounded-full font-semibold btn-hover shadow">Send Message</button>
-              </div>
-            </form>
-          </div>
-        <aside class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md">
-  <h3 class="text-xl font-semibold mb-3">Contact & Support</h3>
-  <p class="text-sm text-gray-600 mb-6">
-    Reach out to our team for support, inquiries, or to explore how UbiquePOS can transform your business.
-  </p>
-  <dl class="space-y-4">
-    <div class="flex gap-3 items-start">
-      <div class="text-2xl text-primary-gold">📧</div>
-      <div>
-        <dt class="text-sm font-semibold text-primary-dark">Email</dt>
-        <dd class="text-sm">
-          <a href="mailto:mickyalonge@gmail.com" class="text-primary-gold hover:underline">mickyalonge@gmail.com</a>
-        </dd>
-        <dd class="text-sm">
-          <a href="mailto:koredealonge38@gmail.com" class="text-primary-gold hover:underline">koredealonge38@gmail.com</a>
-        </dd>
-      </div>
-    </div>
-<div class="flex gap-3 items-start">
-  <div class="text-2xl text-primary-gold">📞</div>
-  <div>
-    <dt class="text-sm font-semibold text-primary-dark">Phone & WhatsApp</dt>
-    <dd class="text-sm flex flex-col gap-1">
-      <span>
-        <a href="tel:+2348140155828" class="text-primary-gold hover:underline">+234 814 401 5828</a> | 
-        <a href="https://wa.me/2348140155828" target="_blank" class="text-primary-gold hover:text-green-500 text-3xl">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </span>
-      <span>
-        <a href="tel:+2348137788406" class="text-primary-gold hover:underline">+234 813 778 8406</a> | 
-        <a href="https://wa.me/2348137788406" target="_blank" class="text-primary-gold hover:text-green-500 text-3xl">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </span>
-    </dd>
-  </div>
-</div>
-    <div class="flex gap-3 items-start">
-      <div class="text-2xl text-primary-gold">💬</div>
-      <div>
-        <dt class="text-sm font-semibold text-primary-dark">Support</dt>
-        <dd class="text-sm">Round-the-clock support to assist businesses whenever required, ensuring seamless operations and guidance.</dd>
-      </div>
-    </div>
-   <div class="flex gap-3 items-start">
-  <div class="text-primary-gold">
-    <dt class="text-sm font-semibold text-primary-dark">Social</dt>
-    <dd class="flex space-x-4 mt-1">
-      <a href="https://twitter.com/yourhandle" target="_blank" class="hover:text-blue-500">
-        <i data-lucide="twitter" class="w-6 h-6"></i>
-      </a>
-      <a href="https://linkedin.com/company/yourcompany" target="_blank" class="hover:text-blue-700">
-        <i data-lucide="linkedin" class="w-6 h-6"></i>
-      </a>
-      <a href="https://facebook.com/yourpage" target="_blank" class="hover:text-blue-600">
-        <i data-lucide="facebook" class="w-6 h-6"></i>
-      </a>
-      <a href="https://instagram.com/yourhandle" target="_blank" class="hover:text-pink-500">
-        <i data-lucide="instagram" class="w-6 h-6"></i>
-      </a>
-    </dd>
-  </div>
-</div>
-    <div class="flex gap-3 items-start">
-      <div class="text-2xl text-primary-gold">❓</div>
-      <div>
-        <dt class="text-sm font-semibold text-primary-dark">Help Center</dt>
-        <dd class="text-sm"><a href="faq.html" class="text-primary-gold hover:underline">Visit our FAQ & Knowledge Base</a> for guidance and tutorials.</dd>
-      </div>
-    </div>
-    <div class="flex gap-3 items-start">
-      <div class="text-2xl text-primary-gold">⏰</div>
-      <div>
-        <dt class="text-sm font-semibold text-primary-dark">Business Hours</dt>
-        <dd class="text-sm">Our team is available 24/7 to respond to inquiries and support requests.</dd>
-      </div>
-    </div>
-  </dl>
-</aside>
-        </div>
-      </div>
-    </section>
-    <section class="py-12 px-4 sm:px-6">
-      <div class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl p-6 text-center">
-        <h3 class="text-2xl md:text-3xl font-bold mb-4">Ready to Grow Smarter?</h3>
-        <p class="mb-6 max-w-xl mx-auto">Transform your business with 50% faster checkouts, 20% less inventory waste, and e-commerce scalability. Get started in just 48 hours—contact us now for a free demo!</p>
-        <a href="#" class="inline-block bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover">Start Free 7-Day Trial</a>
-      </div>
-    </section>
-  </main>
-  <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center mb-4">
-            <div class="h-10 w-10 rounded-full overflow-hidden mr-3">
-              <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover">
+    <!-- Get in Touch Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    Get in <span class="gradient-text">Touch</span>
+                </h2>
             </div>
-            <h3 class="text-lg font-bold">UbiquePOS</h3>
-          </div>
-          <p class="text-sm">From chaos to control: Secure, automate, and thrive with UbiquePOS.</p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div id="contact-form" class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Send Us a Message</h3>
+                    <p class="text-gray-600 mb-4">For the fastest response, reach out via <a href="https://wa.me/2348140155828" target="_blank" class="text-accent hover:underline">WhatsApp</a> or use the form below.</p>
+                    <form id="contact-form-element" action="https://formspree.io/f/mnnnryrw" method="POST" class="space-y-4" novalidate>
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input id="name" name="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input id="email" type="email" name="email" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input id="phone" name="phone" type="tel" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-accent focus:border-accent transition"></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn-primary px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-light transition">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Contact & Support</h3>
+                    <p class="text-gray-600 mb-6">
+                        Reach out to our team for support, inquiries, or to explore how UbiquePOS can transform your business.
+                    </p>
+                    <dl class="space-y-4">
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="mail" class="w-6 h-6 text-gold"></i>
+                            <div>
+                                <dt class="text-sm font-semibold text-primary">Email</dt>
+                                <dd class="text-sm">
+                                    <a href="mailto:mickyalonge@gmail.com" class="text-accent hover:underline">mickyalonge@gmail.com</a>
+                                </dd>
+                                <dd class="text-sm">
+                                    <a href="mailto:koredealonge38@gmail.com" class="text-accent hover:underline">koredealonge38@gmail.com</a>
+                                </dd>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="phone" class="w-6 h-6 text-gold"></i>
+                            <div>
+                                <dt class="text-sm font-semibold text-primary">Phone & WhatsApp</dt>
+                                <dd class="text-sm flex flex-col gap-1">
+                                    <span>
+                                        <a href="tel:+2348140155828" class="text-accent hover:underline">+234 814 401 5828</a> | 
+                                        <a href="https://wa.me/2348140155828" target="_blank" class="text-accent hover:text-green-500">
+                                            <i class="fab fa-whatsapp w-6 h-6"></i>
+                                        </a>
+                                    </span>
+                                    <span>
+                                        <a href="tel:+2348137788406" class="text-accent hover:underline">+234 813 778 8406</a> | 
+                                        <a href="https://wa.me/2348137788406" target="_blank" class="text-accent hover:text-green-500">
+                                            <i class="fab fa-whatsapp w-6 h-6"></i>
+                                        </a>
+                                    </span>
+                                </dd>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="headphones" class="w-6 h-6 text-gold"></i>
+                            <div>
+                                <dt class="text-sm font-semibold text-primary">Support</dt>
+                                <dd class="text-sm">Round-the-clock support to assist businesses whenever required, ensuring seamless operations and guidance.</dd>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="globe" class="w-6 h-6 text-gold"></i>
+                            <div>
+                                <dt class="text-sm font-semibold text-primary">Social</dt>
+                                <dd class="flex space-x-4 mt-1">
+                                    <a href="https://twitter.com/yourhandle" target="_blank" class="text-gray-500 hover:text-gold transition">
+                                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                                    </a>
+                                    <a href="https://linkedin.com/company/yourcompany" target="_blank" class="text-gray-500 hover:text-gold transition">
+                                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                                    </a>
+                                    <a href="https://facebook.com/yourpage" target="_blank" class="text-gray-500 hover:text-gold transition">
+                                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                                    </a>
+                                    <a href="https://instagram.com/yourhandle" target="_blank" class="text-gray-500 hover:text-gold transition">
+                                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                                    </a>
+                                </dd>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="help-circle" class="w-6 h-6 text-gold"></i>
+                            <div>
+                                <dt class="text-sm font-semibold text-primary">Help Center</dt>
+                                <dd class="text-sm"><a href="faq.html" class="text-accent hover:underline">Visit our FAQ & Knowledge Base</a> for guidance and tutorials.</dd>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <i data-lucide="clock" class="w-6 h-6 text-gold"></i>
+                            <div>
+                                <dt class="text-sm font-semibold text-primary">Business Hours</dt>
+                                <dd class="text-sm">Our team is available 24/7 to respond to inquiries and support requests.</dd>
+                            </div>
+                        </div>
+                    </dl>
+                </div>
+            </div>
         </div>
-        <div>
-          <h4 class="font-semibold mb-2">Quick Links</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="index.html" class="hover:underline">Home</a></li>
-            <li><a href="about.html" class="hover:underline">About</a></li>
-            <li><a href="pricing.html" class="hover:underline">Pricing</a></li>
-            <li><a href="testimonial.html" class="hover:underline">Testimonials</a></li>
-            <li><a href="contact.html" class="hover:underline">Contact</a></li>
-          </ul>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary via-primary-light to-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-10 max-w-2xl w-full text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Ready to Grow <span class="gradient-text">Smarter</span>?
+                </h2>
+                <p class="text-lg mb-8">
+                    Transform your business with 50% faster checkouts, 20% less inventory waste, and e-commerce scalability. Get started in just 48 hours—contact us now for a free demo!
+                </p>
+                <a href="#"
+                    class="inline-block btn-primary px-6 py-3 bg-gold text-primary rounded-full font-bold shadow-xl hover:bg-gold-light transition">
+                    Start Free 7-Day Trial
+                </a>
+            </div>
         </div>
-        <div>
-          <h4 class="font-semibold mb-2">Support</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:underline">FAQ</a></li>
-            <li><a href="#" class="hover:underline">Documentation</a></li>
-            <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-            <li><a href="#" class="hover:underline">Terms of Service</a></li>
-          </ul>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="h-10 w-10 rounded-full overflow-hidden mr-4">
+                            <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover scale-150">
+                        </div>
+                        <h3 class="text-xl font-bold">UbiquePOS</h3>
+                    </div>
+                    <p class="text-sm">From chaos to control: Secure, automate, and thrive with UbiquePOS. End theft, gain insights, and scale effortlessly.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-gold transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-gold transition">About</a></li>
+                        <li><a href="pricing.html" class="hover:text-gold transition">Pricing</a></li>
+                        <li><a href="testimonial.html" class="hover:text-gold transition">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Support</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="faq.html" class="hover:text-gold transition">FAQ</a></li>
+                        <li><a href="privacy.html#privacy-content" class="hover:text-gold transition">Privacy Policy</a></li>
+                        <li><a href="privacy.html#terms-content" class="hover:text-gold transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <p class="text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
+                    <p class="text-sm mt-2">Phone: 09075148963 / 08140155828 (WhatsApp)</p>
+                    <p class="text-sm">Email: mickyalonge@gmail.com</p>
+                    <p class="text-sm break-all">Portfolio: <a href="https://folio-two-blush.vercel.app/"
+                            class="hover:text-gold transition">folio-two-blush.vercel.app</a></p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center text-sm border-t border-white/20 pt-4">
+                &copy; 2025 UbiquePOS. All rights reserved.
+            </div>
         </div>
-        <div>
-          <h4 class="font-semibold mb-2">Contact</h4>
-          <p class="text-sm">Alonge OluwaKorede Matthias<br/>Freelance PHP Developer</p>
-          <p class="text-sm mt-2">Phone: 09075148963 / 08140155828 (WhatsApp)</p>
-          <p class="text-sm">Email: mickyalonge@gmail.com</p>
-          <p class="text-sm mt-2"><a href="https://folio-two-blush.vercel.app/" class="hover:underline">folio-two-blush.vercel.app</a></p>
-        </div>
-      </div>
-      <div class="mt-8 text-center text-sm border-t border-white/20 pt-4">&copy; 2025 UbiquePOS. All rights reserved.</div>
-    </div>
-  </footer>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    if (window.AOS) AOS.init({ duration: 700, once: false, mirror: true });
-    if (window.lucide && typeof lucide.createIcons === 'function') {
-      lucide.createIcons();
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+    </script>
+    <script>
+        lucide.createIcons();
+      document
+        .querySelector(".hamburger")
+        .addEventListener("click", function () {
+          this.classList.toggle("open");
+          document.querySelector(".mobile-menu").classList.toggle("active");
+        });
+        document.getElementById('contact-form-element')?.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = this;
+            const name = (form.querySelector('#name')?.value || '').trim();
+            const email = (form.querySelector('#email')?.value || '').trim();
+            const message = (form.querySelector('#message')?.value || '').trim();
+            if (!name || !email || !message) {
+                Toastify({ text: "Please fill required fields", duration: 2500, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
+                return;
+            }
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                Toastify({ text: "Please enter a valid email", duration: 2500, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
+                return;
+            }
+            try {
+                const fd = new FormData(form);
+                const res = await fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
+                if (res.ok) {
+                    Toastify({ text: "Message sent — we'll reply within 24 hours", duration: 3000, gravity: "top", position: "right", backgroundColor: "#10B981" }).showToast();
+                    form.reset();
+                } else {
+                    throw new Error('submission failed');
+                }
+            } catch (err) {
+                Toastify({ text: "Error sending message — try WhatsApp", duration: 3000, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
+            }
+        });
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPoint",
+      "telephone": "+2348140155828",
+      "contactType": "Customer Support",
+      "email": "mickyalonge@gmail.com"
     }
-    (function () {
-      const btn = document.getElementById('nav-toggle');
-      const menu = document.getElementById('mobile-menu');
-      const hamburger = document.getElementById('hamburger');
-      const closeIcon = document.getElementById('close-icon');
-      if (!btn || !menu) return;
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        menu.classList.toggle('hidden');
-        hamburger.classList.toggle('hidden');
-        closeIcon.classList.toggle('hidden');
-      });
-    })();
-    document.querySelectorAll('.faq-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const answer = btn.parentElement.querySelector('.faq-answer');
-        const indicator = btn.querySelector('.faq-indicator');
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        if (answer) answer.classList.toggle('hidden');
-        if (indicator) indicator.textContent = expanded ? '+' : '−';
-      });
-    });
-    document.getElementById('contact-form-element')?.addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const form = this;
-      const name = (form.querySelector('#name')?.value || '').trim();
-      const email = (form.querySelector('#email')?.value || '').trim();
-      const message = (form.querySelector('#message')?.value || '').trim();
-      if (!name || !email || !message) {
-        Toastify({ text: "Please fill required fields", duration: 2500, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
-        return;
-      }
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        Toastify({ text: "Please enter a valid email", duration: 2500, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
-        return;
-      }
-      try {
-        const fd = new FormData(form);
-        const res = await fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } });
-        if (res.ok) {
-          Toastify({ text: "Message sent — we'll reply within 24 hours", duration: 3000, gravity: "top", position: "right", backgroundColor: "#10B981" }).showToast();
-          form.reset();
-        } else {
-          throw new Error('submission failed');
-        }
-      } catch (err) {
-        Toastify({ text: "Error sending message — try WhatsApp", duration: 3000, gravity: "top", position: "right", backgroundColor: "#EF4444" }).showToast();
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>

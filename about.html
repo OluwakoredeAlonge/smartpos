@@ -1,115 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="About UbiquePOS: Founded in 2025, we empower businesses with automation, security, and growth tools. End theft, gain insights, and scale effortlessly.">
+    <meta property="og:title" content="About UbiquePOS - Empower Your Business">
+    <meta property="og:description"
+        content="Discover our vision, mission, and team. UbiquePOS transforms operations with accountability and innovation.">
+    <meta property="og:image" content="https://yourdomain.com/asset/home.png">
+    <meta property="og:url" content="https://yourdomain.com/about.html">
+    <meta property="og:type" content="website">
     <title>About UbiquePOS - Empower Your Business with Accountability and Automation</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'primary-gold': '#CDA434', 
-              'primary-dark': '#1F2937', 
-              'accent-gold': '#F5E6CA', 
-              'accent-gray': '#F3F4F6', 
-              'secondary-blue': '#1D4ED8', 
-            },
-            fontFamily: {
-              sans: ['Poppins', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
-            },
-            animation: {
-              'fade-in': 'fadeIn 0.5s ease-out',
-              'slide-in': 'slideIn 0.3s ease-out',
-              'slide-up': 'slideUp 0.5s ease-out',
-              'zoom-in': 'zoomIn 0.6s ease-out',
-              'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
-            },
-            keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(10px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              slideIn: {
-                '0%': { transform: 'translateX(100%)' },
-                '100%': { transform: 'translateX(0)' },
-              },
-              slideUp: {
-                '0%': { transform: 'translateY(100%)', opacity: '0' },
-                '100%': { transform: 'translateY(0)', opacity: '1' },
-              },
-              zoomIn: {
-                '0%': { opacity: '0', transform: 'scale(0.9)' },
-                '100%': { opacity: '1', transform: 'scale(1)' },
-              },
-              pulseGlow: {
-                '0%, 100%': { boxShadow: '0 0 0 0 rgba(205, 164, 52, 0.4)' },
-                '50%': { boxShadow: '0 0 20px 10px rgba(205, 164, 52, 0)' },
-              },
-            },
-          },
-        },
-      };
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0A2540',
+                        'primary-light': '#1A3A5C',
+                        'accent': '#635BFF',
+                        'accent-light': '#7A73FF',
+                        'gold': '#FFB800',
+                        'gold-light': '#FFC933',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
     </script>
     <style>
-      .triangle {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-left: 100vw solid transparent;
-        border-bottom: 150px solid white;
-        z-index: 1;
-      }
-      .card-hover:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 10px 15px -3px rgba(205, 164, 52, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      }
-      .btn-hover:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
-      }
-      .img-hover:hover {
-        transform: scale(1.03);
-        transition: transform 0.3s ease;
-      }
-      .hamburger div {
-        transition: all 0.3s ease;
-      }
-      .hamburger.open .line1 {
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      .hamburger.open .line2 {
-        opacity: 0;
-      }
-      .hamburger.open .line3 {
-        transform: rotate(-45deg) translate(5px, -5px);
-      }
-      .animated-card {
-        transition: all 0.3s ease;
-      }
-      .animated-card:hover {
-        transform: scale(1.05) rotate(1deg);
-        box-shadow: 0 15px 25px rgba(205, 164, 52, 0.3);
-      }
-      .icon-hover:hover {
-        transform: scale(1.2);
-        transition: transform 0.3s ease;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+        /* Animated Background Gradient Orbs */
+        .gradient-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float-orb 25s infinite ease-in-out;
+        }
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(99, 91, 255, 0.4), transparent);
+            top: -250px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 184, 0, 0.3), transparent);
+            top: 20%;
+            right: -150px;
+            animation-delay: 5s;
+        }
+        .orb-3 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(99, 91, 255, 0.3), transparent);
+            bottom: -300px;
+            left: 30%;
+            animation-delay: 10s;
+        }
+        @keyframes float-orb {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(100px, -100px) scale(1.1);
+            }
+            66% {
+                transform: translate(-50px, 50px) scale(0.9);
+            }
+        }
+        /* Floating Bubbles - More, smaller, colored subtly */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            backdrop-filter: blur(10px);
+            animation: rise 15s infinite ease-in; /* Faster for more movement */
+            opacity: 0.2; /* Subtle visibility */
+        }
+        /* Alternate colors based on theme */
+        .bubble:nth-child(odd) {
+            background: rgba(99, 91, 255, 0.3); /* Light accent purple */
+        }
+        .bubble:nth-child(even) {
+            background: rgba(255, 184, 0, 0.2); /* Light gold */
+        }
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                opacity: 0;
+                transform: translateX(0) scale(0.5);
+            }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% {
+                bottom: 120%;
+                opacity: 0;
+                transform: translateX(100px) scale(1); /* Less extreme movement */
+            }
+        }
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #635BFF 0%, #FFB800 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Glass Morphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        /* Button Animations */
+        .btn-primary {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        .btn-primary:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(99, 91, 255, 0.4);
+        }
+        /* Card Hover Effects */
+        .feature-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 91, 255, 0.1), rgba(255, 184, 0, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+            border-radius: inherit;
+        }
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+        /* Fade In Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .delay-6 { animation-delay: 0.6s; }
+        /* Pulse Animation */
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        .pulse-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #FFB800;
+            animation: pulse-ring 2s infinite;
+        }
+        /* Image Overlay Animation */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .demo-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            animation: float-badge 3s ease-in-out infinite;
+        }
+        @keyframes float-badge {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.05);
+            }
+        }
+        /* Hamburger Menu */
+        .hamburger div {
+            transition: all 0.3s ease;
+        }
+        .hamburger.open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.open .line2 {
+            opacity: 0;
+        }
+        .hamburger.open .line3 {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        /* Mobile Menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-menu.active {
+            max-height: 500px;
+        }
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Section Divider */
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+        @media (min-width: 768px) {
+            .wave-divider svg {
+                height: 100px;
+            }
+        }
+        .triangle {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 100vw solid transparent;
+            border-bottom: 80px solid white;
+            z-index: 1;
+        }
+        @media (min-width: 768px) {
+            .triangle {
+                border-bottom-width: 150px;
+            }
+        }
+        .card-hover:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(205, 164, 52, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(205, 164, 52, 0.5);
+        }
+        .img-hover:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+        .animated-card {
+            transition: all 0.3s ease;
+        }
+        .animated-card:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 25px rgba(205, 164, 52, 0.3);
+        }
+        @keyframes image-float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1.02); }
+        }
+        .hero-image {
+            animation: image-float 6s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
     </style>
-  </head>
-  <body class="bg-accent-gray font-sans antialiased">
-      <nav class="sticky top-0 z-50 bg-white shadow-lg">
+</head>
+<body class="font-sans antialiased">
+   <nav class="sticky top-0 z-50 bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
@@ -120,19 +358,19 @@
                     </a>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                    <a href="index.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
                         <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
                     </a>
-                    <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                    <a href="about.html" class="flex items-center text-gold font-semibold">
                         <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
                     </a>
-                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                    <a href="pricing.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
                         <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
                     </a>
-                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                    <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
                         <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
                     </a>
-                    <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold hover:underline transition duration-300">
+                    <a href="contact.html" class="flex items-center text-gray-700 hover:text-gold hover:underline transition duration-300">
                         <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
                     </a>
                 </div>
@@ -145,490 +383,397 @@
                 </div>
             </div>
         </div>
-        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+        <div class="mobile-menu md:hidden bg-white shadow-lg">
             <div class="flex flex-col space-y-4 py-4 px-6 animate-slide-in">
-                <a href="index.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                <a href="index.html" class="flex items-center text-gray-700 hover:text-gold">
                     <i data-lucide="home" class="w-5 h-5 mr-2"></i>Home
                 </a>
-                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                <a href="pricing.html" class="flex items-center text-gray-700 hover:text-gold">
                     <i data-lucide="dollar-sign" class="w-5 h-5 mr-2"></i>Pricing
                 </a>
-                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                <a href="testimonial.html" class="flex items-center text-gray-700 hover:text-gold">
                     <i data-lucide="star" class="w-5 h-5 mr-2"></i>Testimonials
                 </a>
-                <a href="contact.html" class="flex items-center text-gray-700 hover:text-primary-gold">
+                <a href="contact.html" class="flex items-center text-gray-700 hover:text-gold">
                     <i data-lucide="mail" class="w-5 h-5 mr-2"></i>Contact
                 </a>
-                <a href="about.html" class="flex items-center text-primary-gold font-semibold">
+                <a href="about.html" class="flex items-center text-gold font-semibold">
                     <i data-lucide="info" class="w-5 h-5 mr-2"></i>About
                 </a>
             </div>
         </div>
     </nav>
-    <section
-      class="relative bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-20 overflow-hidden"
-    >
-      <div class="triangle"></div>
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center relative z-10"
-      >
-        <div class="md:w-1/2 text-center md:text-left">
-          <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">
-            <span class="text-accent-gold">Take Back Control:</span>
-            <span class="text-white">End Theft, Automate Accountability, and Scale Effortlessly</span>
-          </h1>
-          <p class="text-lg md:text-xl mb-8 animate-fade-in">
-            Imagine running your business without constant worry about unaccounted stock or dishonest staff. UbiquePOS brings total automation—real-time stock updates, remote management, and notifications that ensure every item is tracked. Transform losses into profits, enjoy peace of mind, and focus on growth. Businesses like yours see 50% faster operations and zero theft incidents after adoption.
-          </p>
-          <a
-            href="#vision-mission"
-            class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold hover:bg-accent-gold transition btn-hover animate-fade-in"
-            >Discover How We Empower You</a
-          >
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-16 overflow-hidden bg-gradient-to-br from-primary via-primary-light to-primary">
+        <!-- Animated Background -->
+        <div class="gradient-bg">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
         </div>
-        <div class="md:w-1/2 mt-8 md:mt-0 img-hover">
-          <img
-            src="asset/home.png"
-            alt="UbiquePOS Dashboard"
-            class="rounded-lg shadow-xl"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="vision-mission" class="py-16 bg-accent-gray">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in"
-        >
-          Our Vision & Mission
-        </h2>
-        <div class="flex flex-col md:flex-row items-center gap-8">
-          <div
-            class="md:w-1/2 bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="100"
-          >
-            <div class="flex items-center mb-4">
-              <svg
-                class="h-8 w-8 text-primary-gold mr-3 icon-hover"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
-                ></path>
-              </svg>
-              <h3 class="text-xl font-semibold text-primary-gold">
-                Our Vision
-              </h3>
+        <!-- More Floating Bubbles - Smaller, colored -->
+        <div class="bubble" style="width: 30px; height: 30px; left: 5%; animation-delay: 0s;"></div>
+        <div class="bubble" style="width: 40px; height: 40px; left: 15%; animation-delay: 1s;"></div>
+        <div class="bubble" style="width: 25px; height: 25px; left: 25%; animation-delay: 2s;"></div>
+        <div class="bubble" style="width: 35px; height: 35px; left: 35%; animation-delay: 3s;"></div>
+        <div class="bubble" style="width: 20px; height: 20px; left: 45%; animation-delay: 4s;"></div>
+        <div class="bubble" style="width: 45px; height: 45px; left: 55%; animation-delay: 5s;"></div>
+        <div class="bubble" style="width: 28px; height: 28px; left: 65%; animation-delay: 6s;"></div>
+        <div class="bubble" style="width: 32px; height: 32px; left: 75%; animation-delay: 7s;"></div>
+        <div class="bubble" style="width: 38px; height: 38px; left: 85%; animation-delay: 8s;"></div>
+        <div class="bubble" style="width: 22px; height: 22px; left: 95%; animation-delay: 9s;"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Left Content -->
+                <div class="text-white fade-in-up">
+                    <div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-sm mb-6 delay-1 fade-in-up">
+                        <span class="text-gold">🚀</span> Empower Your Business
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight delay-2 fade-in-up">
+                        Take Back Control: <span class="gradient-text">End Theft, Automate Accountability</span>, and Scale Effortlessly
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 delay-3 fade-in-up">
+                        Imagine running your business without constant worry about unaccounted stock or dishonest staff. UbiquePOS brings total automation—real-time stock updates, remote management, and notifications that ensure every item is tracked. Transform losses into profits, enjoy peace of mind, and focus on growth. Businesses like yours see 50% faster operations and zero theft incidents after adoption.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 delay-4 fade-in-up">
+                        <a href="#vision-mission" class="btn-primary px-6 py-3 bg-accent text-white rounded-lg font-semibold text-center relative z-10">
+                            Discover How We Empower You
+                        </a>
+                    </div>
+                </div>
+                <!-- Right Content - Image with Demo Badge and Animation -->
+                <div class="relative delay-6 fade-in-up">
+                    <div class="image-container">
+                        <!-- Demo Badge with Pulse Animation -->
+                        <div class="demo-badge">
+                            <div class="relative">
+                                <div class="pulse-ring"></div>
+                                <a href="#contact" class="relative flex items-center space-x-2 px-6 py-3 bg-gold text-primary rounded-full font-bold shadow-2xl hover:bg-gold-light transition">
+                                    <span>🎁</span>
+                                    <span>7-Day Free Trial</span>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="asset/home.png" alt="UbiquePOS Dashboard" class="rounded-2xl shadow-2xl w-full hero-image">
+                    </div>
+                </div>
             </div>
-            <p class="text-lg text-gray-600 animate-fade-in">
-              To create a world where business owners like you can thrive without fear of theft or inefficiency. We envision automated systems that enforce accountability, enable remote control, and drive explosive growth—turning everyday challenges into opportunities for success and peace of mind. Even if you lack an online presence, UbiquePOS provides the foundation with included hosting and domain, allowing you to build a professional website effortlessly and rank on Google with our SEO tools—at no extra cost.
-            </p>
-          </div>
-          <div
-            class="md:w-1/2 bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover pulse-glow" data-aos="zoom-in" data-aos-delay="200"
-          >
-            <div class="flex items-center mb-4">
-              <svg
-                class="h-8 w-8 text-primary-gold mr-3 icon-hover"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </svg>
-              <h3 class="text-xl font-semibold text-primary-gold">
-                Our Mission
-              </h3>
-            </div>
-            <p class="text-lg text-gray-600 animate-fade-in">
-              Founded in 2025 by Alonge OluwaKorede Matthias, a passionate Freelance PHP Developer, UbiquePOS solves real pains like stock theft and manual errors. Our cloud-based platform delivers automation, real-time sync, low-stock alerts, and multi-branch management—empowering you to run your business from anywhere, with anyone, securely and effortlessly. As a UbiquePOS user, you get discounted website development services to establish your online brand, outpacing rivals stuck with traditional systems.
-            </p>
-          </div>
         </div>
-      </div>
-    </section>
-    <section class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in"
-        >
-          Why UbiquePOS Will Make You Fall in Love with Your Business Again
-        </h2>
-        <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
-          Say goodbye to sleepless nights over missing stock. UbiquePOS brings unbreakable accountability, effortless automation, and insights that fuel growth. Users report 50% less oversight time, zero theft, and 40% higher efficiency—imagine what that means for your freedom and profits.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover text-center" data-aos="zoom-in" data-aos-delay="100"
-          >
-            <svg
-              class="h-10 w-10 text-primary-gold mx-auto mb-4 icon-hover"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              ></path>
+        <!-- Wave Divider -->
+        <div class="wave-divider">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
             </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Unbreakable Accountability</h3>
-            <p class="text-gray-600">
-              No stock updates? No sales. Enforce total control remotely—end theft and unaccounted items forever, giving you the peace to step away for weeks.
-            </p>
-          </div>
-          <div
-            class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover text-center" data-aos="zoom-in" data-aos-delay="200"
-          >
-            <svg
-              class="h-10 w-10 text-primary-gold mx-auto mb-4 icon-hover"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4m0-6c-1.1 0-2-.9-2-2s.9-2 2-2m0 0c1.1 0 2 .9 2 2s-.9 2-2 2m-7 4c0 4.4 3.6 8 8 8s8-3.6 8-8m-8 4c-4.4 0-8-3.6-8-8m8 8c-2.2 0-4-1.8-4-4s1.8-4 4-4"
-              ></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">
-              Seamless Multi-Branch Mastery
-            </h3>
-            <p class="text-gray-600">
-              Manage multiple locations from one dashboard. Real-time sync ensures every branch is accountable, scalable, and theft-proof—grow without the chaos.
-            </p>
-          </div>
-          <div
-            class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover text-center" data-aos="zoom-in" data-aos-delay="300"
-          >
-            <svg
-              class="h-10 w-10 text-primary-gold mx-auto mb-4 icon-hover"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 3h18M3 3v18M21 3v18M9 9h6m-6 6h6"
-              ></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">
-              Effortless for Everyone
-            </h3>
-            <p class="text-gray-600">
-              No tech experts needed—just basic phone skills. Intuitive design means quick training, low-stock alerts for proactive restocking, and decisions that drive success. Our error-free, well-detailed system ensures everything is straightforward—no unclear features or frequent support calls.
-            </p>
-          </div>
         </div>
-      </div>
     </section>
-    <section class="py-16 bg-accent-gray">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in"
-        >
-          How UbiquePOS Unlocks Your Business Potential
-        </h2>
-        <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
-          From theft-proof automation to remote freedom, UbiquePOS turns your operations into a powerhouse. Picture no more losses, instant insights, and growth on autopilot—it's time to love running your business again.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div
-            class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="100"
-          >
-            <svg
-              class="h-10 w-10 text-primary-gold mb-4 icon-hover"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              ></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Lightning-Fast, Secure Sales</h3>
-            <p class="text-gray-600">
-              Process transactions in seconds with real-time sync—prevent unauthorized sales and build customer trust with professional receipts.
-            </p>
-          </div>
-          <div
-            class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="200"
-          >
-            <svg
-              class="h-10 w-10 text-primary-gold mb-4 icon-hover"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-              ></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">
-              Intelligent Inventory Mastery
-            </h3>
-            <p class="text-gray-600">
-              Automatic low-stock notifications to admins and attendants—restock before it's too late, eliminate waste, and keep sales flowing.
-            </p>
-          </div>
-          <div
-            class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="300"
-          >
-            <svg
-              class="h-10 w-10 text-primary-gold mb-4 icon-hover"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              ></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">
-              Empowering Insights for Growth
-            </h3>
-            <p class="text-gray-600">
-              Track every detail in real-time—make informed decisions that turn data into dollars and your business into a success story.
-            </p>
-          </div>
-          <div
-            class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="zoom-in" data-aos-delay="400"
-          >
-            <svg
-              class="h-10 w-10 text-primary-gold mb-4 icon-hover"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 004 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">
-              Remote Freedom & Scalability
-            </h3>
-            <p class="text-gray-600">
-              Update stock from anywhere with internet—expand to e-commerce or new branches seamlessly, all while maintaining ironclad control. With included hosting and domain, build your online presence at zero extra cost, complete with SEO tools for Google ranking and discounted website services as our valued customer.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="py-16 bg-accent-gray">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in">The Game-Changing Benefits of UbiquePOS for Your Business</h2>
-        <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">UbiquePOS isn't just a tool—it's a catalyst for transformation. Discover how it elevates your operations, secures your assets, and opens doors to new opportunities, making your business more resilient, efficient, and competitive.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="fade-up" data-aos-delay="100">
-            <svg class="h-10 w-10 text-primary-gold mb-4 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Effortless Efficiency & Automation</h3>
-            <p class="text-gray-600">Streamline sales, inventory, and reporting with real-time automation—cut oversight time by 50%, reduce errors, and let your team focus on growth.</p>
-          </div>
-          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="fade-up" data-aos-delay="200">
-            <svg class="h-10 w-10 text-primary-gold mb-4 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Theft-Proof Security & Peace of Mind</h3>
-            <p class="text-gray-600">Enforce accountability with no-sales-without-updates logic and audit logs—eliminate losses, build trust, and enjoy remote management without worry.</p>
-          </div>
-          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="fade-up" data-aos-delay="300">
-            <svg class="h-10 w-10 text-primary-gold mb-4 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 8"></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Scalable Growth & Online Expansion</h3>
-            <p class="text-gray-600">Even without an online presence, leverage your UbiquePOS hosting and domain to build a website easily. Rank on Google with our SEO tools, attract enquiries, and outpace rivals—all at zero extra cost, with discounts for loyal customers to fuel your brand's success.</p>
-          </div>
-          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="fade-up" data-aos-delay="400">
-            <svg class="h-10 w-10 text-primary-gold mb-4 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Data-Driven Insights & Decisions</h3>
-            <p class="text-gray-600">Harness real-time analytics to spot trends, optimize stock, and boost profits—turn information into actionable strategies for sustained success.</p>
-          </div>
-          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="fade-up" data-aos-delay="500">
-            <svg class="h-10 w-10 text-primary-gold mb-4 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9a2 2 0 01-2 2H8a2 2 0 01-2-2V7a2 2 0 012-2h8a2 2 0 012 2v2zm-2 8a2 2 0 002-2V9a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2h10z"></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">User-Friendly & Error-Free Design</h3>
-            <p class="text-gray-600">Straightforward interface ensures quick adoption—no confusion or constant support. UbiquePOS is meticulously detailed and reliable from day one.</p>
-          </div>
-          <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover" data-aos="fade-up" data-aos-delay="600">
-            <svg class="h-10 w-10 text-primary-gold mb-4 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5-5m-5 0h-5 5m5-18h5-5M7 2h-5 5m11 4l-2 12-4 4m-4-16l-2 12-4 4"></path>
-            </svg>
-            <h3 class="text-xl font-semibold mb-2 text-primary-dark">Cost Savings & Competitive Edge</h3>
-            <p class="text-gray-600">Minimize waste, maximize profits—gain advantages like free online tools that traditional rivals can't match, propelling your business forward.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2
-          class="text-3xl font-bold text-center mb-12 text-primary-dark animate-fade-in"
-        >
-          Meet the Team Behind Your Success
-        </h2>
-        <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
-          We're passionate about empowering businesses like yours with tools that bring real change. Our team combines expertise and dedication to deliver solutions that inspire confidence and drive results.
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover text-center" data-aos="fade-up" data-aos-delay="100">
-  <img
-    src="asset/korede.jpg"
-    alt="Founder"
-    class="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-top"
-  />
-  <h3 class="text-2xl font-bold mb-1 text-primary-dark">Alonge OluwaKorede Matthias</h3>
-  <p class="text-gray-600 mb-3 font-medium">Founder • Full‑Stack Laravel & PHP Developer</p>
-  <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-    Tech enthusiast, problem-solver, and full‑stack developer driven to build solutions that empower African businesses. From crafting seamless Laravel applications to streamlining processes with vanilla PHP, I merge innovation with practical execution. My goal is to transform ideas into efficient, scalable systems that make a real impact.
-  </p>
-  <div class="mb-6">
-    <a
-      href="#"
-      class="inline-flex items-center space-x-2 bg-primary-gold text-primary-dark px-4 py-2 rounded-full shadow hover:bg-accent-gold transition font-medium"
-    >
-      <i data-lucide="external-link" class="w-4 h-4"></i>
-      <span>View My Portfolio</span>
-    </a>
-  </div>
-  <div class="flex justify-center space-x-4 mb-6">
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="facebook" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="instagram" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="twitter" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="linkedin" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="message-circle" class="w-5 h-5"></i>
-    </a>
-  </div>
-  <div class="flex justify-center space-x-2">
-    <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
-    <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
-    <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
-  </div>
-</div>
-     <div class="bg-gradient-to-br from-accent-gold to-white p-6 rounded-xl shadow-md animated-card card-hover text-center" data-aos="fade-up" data-aos-delay="200">
-  <img
-    src="asset/babe.jpg"
-    alt="Marketing Strategist"
-    class="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-center"
-  />
-  <h3 class="text-2xl font-bold mb-1 text-primary-dark">Fawekun Aanuoluwapo</h3>
-  <p class="text-gray-600 mb-3 font-medium">Co-Founder • Marketing Strategist & Content Creator</p>
-  <p class="text-sm text-gray-500 mb-6 leading-relaxed">
-    A visionary marketing strategist and content creator dedicated to helping businesses gain visibility and growth. She has been the driving force behind our outreach—engaging business owners, following up with prospects, and connecting the right solutions to those ready for true transformation. A refined and God-fearing woman committed to empowering businesses through creativity, strategy, and impact.
-  </p>
-  <div class="mb-6">
-    <a
-      href="#"
-      class="inline-flex items-center space-x-2 bg-primary-gold text-primary-dark px-4 py-2 rounded-full shadow hover:bg-accent-gold transition font-medium"
-    >
-      <i data-lucide="external-link" class="w-4 h-4"></i>
-      <span>View Her Media Portfolio</span>
-    </a>
-  </div>
-  <div class="flex justify-center space-x-4 mb-6">
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="facebook" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="instagram" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="twitter" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="linkedin" class="w-5 h-5"></i>
-    </a>
-    <a href="#" class="text-gray-500 hover:text-primary-gold transition">
-      <i data-lucide="message-circle" class="w-5 h-5"></i>
-    </a>
-  </div>
-  <div class="flex justify-center space-x-2">
-    <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
-    <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
-    <div class="w-2 h-2 bg-primary-gold rounded-full"></div>
-  </div>
-</div>
-        </div>
-      </div>
-    </section>
-    <section class="py-16 px-4 sm:px-6">
-      <div
-        class="max-w-4xl mx-auto bg-gradient-to-r from-primary-dark to-secondary-blue text-white rounded-2xl shadow-xl card-hover animate-fade-in"
-      >
-        <div class="text-center p-6 sm:p-8">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Transform Your Business and Reclaim Your Peace?
-          </h2>
-          <p class="text-base md:text-lg mb-8 max-w-xl mx-auto">
-            Stop losses, automate success, and scale with confidence. Join thousands falling in love with their businesses again—start your free trial and see the magic in weeks.
-          </p>
-          <div
-            class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4"
-          >
-            <a
-              href="#"
-              class="bg-primary-gold text-primary-dark px-6 py-3 rounded-full font-semibold text-base hover:bg-accent-gold transition btn-hover shadow-md"
-              >Start Free 7-Day Trial Now</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-    <footer class="bg-gradient-to-r from-primary-dark to-secondary-blue text-white py-8">
+    <!-- Vision & Mission Section -->
+    <section id="vision-mission" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    Our <span class="gradient-text">Vision & Mission</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Discover the driving force behind UbiquePOS—empowering businesses with innovative solutions for security, efficiency, and growth.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="eye" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Our Vision</h3>
+                    <p class="text-gray-600">
+                        To create a world where business owners like you can thrive without fear of theft or inefficiency. We envision automated systems that enforce accountability, enable remote control, and drive explosive growth—turning everyday challenges into opportunities for success and peace of mind. Even if you lack an online presence, UbiquePOS provides the foundation with included hosting and domain, allowing you to build a professional website effortlessly and rank on Google with our SEO tools—at no extra cost.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="target" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Our Mission</h3>
+                    <p class="text-gray-600">
+                        Founded in 2025 by Alonge OluwaKorede Matthias, a passionate Freelance PHP Developer, UbiquePOS solves real pains like stock theft and manual errors. Our cloud-based platform delivers automation, real-time sync, low-stock alerts, and multi-branch management—empowering you to run your business from anywhere, with anyone, securely and effortlessly. As a UbiquePOS user, you get discounted website development services to establish your online brand, outpacing rivals stuck with traditional systems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why UbiquePOS Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    Why UbiquePOS Will Make You <span class="gradient-text">Fall in Love</span> with Your Business Again
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Say goodbye to sleepless nights over missing stock. UbiquePOS brings unbreakable accountability, effortless automation, and insights that fuel growth. Users report 50% less oversight time, zero theft, and 40% higher efficiency—imagine what that means for your freedom and profits.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Unbreakable Accountability</h3>
+                    <p class="text-gray-600">
+                        No stock updates? No sales. Enforce total control remotely—end theft and unaccounted items forever, giving you the peace to step away for weeks.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="network" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Seamless Multi-Branch Mastery</h3>
+                    <p class="text-gray-600">
+                        Manage multiple locations from one dashboard. Real-time sync ensures every branch is accountable, scalable, and theft-proof—grow without the chaos.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="smile" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Effortless for Everyone</h3>
+                    <p class="text-gray-600">
+                        No tech experts needed—just basic phone skills. Intuitive design means quick training, low-stock alerts for proactive restocking, and decisions that drive success. Our error-free, well-detailed system ensures everything is straightforward—no unclear features or frequent support calls.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- How UbiquePOS Unlocks Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    How UbiquePOS <span class="gradient-text">Unlocks</span> Your Business Potential
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    From theft-proof automation to remote freedom, UbiquePOS turns your operations into a powerhouse. Picture no more losses, instant insights, and growth on autopilot—it's time to love running your business again.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="zap" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Lightning-Fast, Secure Sales</h3>
+                    <p class="text-gray-600">
+                        Process transactions in seconds with real-time sync—prevent unauthorized sales and build customer trust with professional receipts.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="package" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Intelligent Inventory Mastery</h3>
+                    <p class="text-gray-600">
+                        Automatic low-stock notifications to admins and attendants—restock before it's too late, eliminate waste, and keep sales flowing.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-3" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Empowering Insights for Growth</h3>
+                    <p class="text-gray-600">
+                        Track every detail in real-time—make informed decisions that turn data into dollars and your business into a success story.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="globe" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Remote Freedom & Scalability</h3>
+                    <p class="text-gray-600">
+                        Update stock from anywhere with internet—expand to e-commerce or new branches seamlessly, all while maintaining ironclad control. With included hosting and domain, build your online presence at zero extra cost, complete with SEO tools for Google ranking and discounts for loyal customers.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Game-Changing Benefits Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    The Game-Changing <span class="gradient-text">Benefits</span> of UbiquePOS for Your Business
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    UbiquePOS isn't just a tool—it's a catalyst for transformation. Discover how it elevates your operations, secures your assets, and opens doors to new opportunities, making your business more resilient, efficient, and competitive.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="rocket" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Effortless Efficiency & Automation</h3>
+                    <p class="text-gray-600">
+                        Streamline sales, inventory, and reporting with real-time automation—cut oversight time by 50%, reduce errors, and let your team focus on growth.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Theft-Proof Security & Peace of Mind</h3>
+                    <p class="text-gray-600">
+                        Enforce accountability with no-sales-without-updates logic and audit logs—eliminate losses, build trust, and enjoy remote management without worry.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="trending-up" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Scalable Growth & Online Expansion</h3>
+                    <p class="text-gray-600">
+                        Even without an online presence, leverage your UbiquePOS hosting and domain to build a website easily. Rank on Google with our SEO tools, attract enquiries, and outpace rivals—all at zero extra cost, with discounts for loyal customers to fuel your brand's success.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-3" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Data-Driven Insights & Decisions</h3>
+                    <p class="text-gray-600">
+                        Harness real-time analytics to spot trends, optimize stock, and boost profits—turn information into actionable strategies for sustained success.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-5" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-accent-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="smile" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">User-Friendly & Error-Free Design</h3>
+                    <p class="text-gray-600">
+                        Straightforward interface ensures quick adoption—no confusion or constant support. UbiquePOS is meticulously detailed and reliable from day one.
+                    </p>
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-gradient-to-br from-gold to-gold-light rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="dollar-sign" class="w-7 h-7 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-3">Cost Savings & Competitive Edge</h3>
+                    <p class="text-gray-600">
+                        Minimize waste, maximize profits—gain advantages like free online tools that traditional rivals can't match, propelling your business forward.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Meet the Team Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+                    Meet the <span class="gradient-text">Team</span> Behind Your Success
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    We're passionate about empowering businesses like yours with tools that bring real change. Our team combines expertise and dedication to deliver solutions that inspire confidence and drive results.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-1" data-aos="fade-up" data-aos-delay="100">
+                    <img src="asset/korede.jpg" alt="Founder" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-top">
+                    <h3 class="text-2xl font-bold text-primary mb-1 text-center">Alonge OluwaKorede Matthias</h3>
+                    <p class="text-gray-600 text-center mb-3 font-medium">Founder • Full-Stack Laravel & PHP Developer</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Tech enthusiast, problem-solver, and full-stack developer driven to build solutions that empower African businesses. From crafting seamless Laravel applications to streamlining processes with vanilla PHP, I merge innovation with practical execution. My goal is to transform ideas into efficient, scalable systems that make a real impact.
+                    </p>
+                    <div class="mb-6 text-center">
+                        <a href="https://folio-two-blush.vercel.app/" class="inline-flex items-center space-x-2 px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-light transition">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                            <span>View My Portfolio</span>
+                        </a>
+                    </div>
+                    <div class="flex justify-center space-x-4 mb-6">
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div class="flex justify-center space-x-3 mb-6">
+  <div class="w-2 h-2 bg-yellow-500 rounded-full shadow hover:scale-110 transition-transform cursor-pointer"></div>
+  <div class="w-2 h-2 bg-yellow-500 rounded-full shadow hover:scale-110 transition-transform cursor-pointer"></div>
+  <div class="w-2 h-2 bg-yellow-500 rounded-full shadow hover:scale-110 transition-transform cursor-pointer"></div>
+</div>
+
+                </div>
+                <div class="feature-card bg-white p-8 rounded-2xl shadow-lg border border-gray-100 fade-in-up delay-2" data-aos="fade-up" data-aos-delay="200">
+                    <img src="asset/babe.jpg" alt="Marketing Strategist" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-center">
+                    <h3 class="text-2xl font-bold text-primary mb-1 text-center">Fawekun Aanuoluwapo</h3>
+                    <p class="text-gray-600 text-center mb-3 font-medium">Co-Founder • Marketing Strategist & Content Creator</p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        A visionary marketing strategist and content creator dedicated to helping businesses gain visibility and growth. She has been the driving force behind our outreach—engaging business owners, following up with prospects, and connecting the right solutions to those ready for true transformation. A refined and God-fearing woman committed to empowering businesses through creativity, strategy, and impact.
+                    </p>
+                    <div class="mb-6 text-center">
+                        <a href="#" class="inline-flex items-center space-x-2 px-6 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-light transition">
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                            <span>View Her Media Portfolio</span>
+                        </a>
+                    </div>
+                    <div class="flex justify-center space-x-4 mb-6">
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-500 hover:text-gold transition">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                     <div class="flex justify-center space-x-3 mb-6">
+  <div class="w-2 h-2 bg-yellow-500 rounded-full shadow hover:scale-110 transition-transform cursor-pointer"></div>
+  <div class="w-2 h-2 bg-yellow-500 rounded-full shadow hover:scale-110 transition-transform cursor-pointer"></div>
+  <div class="w-2 h-2 bg-yellow-500 rounded-full shadow hover:scale-110 transition-transform cursor-pointer"></div>
+</div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-primary via-primary-light to-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
+            <div class="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-10 max-w-2xl w-full text-center text-white">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Ready to Transform Your Business and <span class="gradient-text">Reclaim Your Peace</span>?
+                </h2>
+                <p class="text-lg mb-8">
+                    Stop losses, automate success, and scale with confidence. Join thousands falling in love with their businesses again—start your free trial and see the magic in weeks.
+                </p>
+                <a href="#"
+                    class="inline-block btn-primary px-6 py-3 bg-gold text-primary rounded-full font-bold shadow-xl hover:bg-gold-light transition">
+                    Start Free 7-Day Trial Now
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <div class="h-12 w-12 rounded-full overflow-hidden mr-4">
+                        <div class="h-10 w-10 rounded-full overflow-hidden mr-4">
                             <img src="asset/logo.png" alt="UbiquePOS Logo" class="h-full w-full object-cover scale-150">
                         </div>
                         <h3 class="text-xl font-bold">UbiquePOS</h3>
@@ -637,21 +782,20 @@
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="hover:underline">Home</a></li>
-                        <li><a href="about.html" class="hover:underline">About</a></li>
-                        <li><a href="pricing.html" class="hover:underline">Pricing</a></li>
-                        <li><a href="testimonial.html" class="hover:underline">Testimonials</a></li>
-                        <li><a href="contact.html" class="hover:underline">Contact</a></li>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-gold transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-gold transition">About</a></li>
+                        <li><a href="pricing.html" class="hover:text-gold transition">Pricing</a></li>
+                        <li><a href="testimonial.html" class="hover:text-gold transition">Testimonials</a></li>
+                        <li><a href="contact.html" class="hover:text-gold transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Support</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:underline">FAQ</a></li>
-                        <li><a href="#" class="hover:underline">Documentation</a></li>
-                        <li><a href="#" class="hover:underline">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="faq.html" class="hover:text-gold transition">FAQ</a></li>
+                        <li><a href="privacy.html#privacy-content" class="hover:text-gold transition">Privacy Policy</a></li>
+                        <li><a href="privacy.html#terms-content" class="hover:text-gold transition">Terms of Service</a></li>
                     </ul>
                 </div>
                 <div>
@@ -659,11 +803,25 @@
                     <p class="text-sm">Alonge OluwaKorede Matthias<br>Freelance PHP Developer</p>
                     <p class="text-sm mt-2">Phone: 09075148963 / 08140155828 (WhatsApp)</p>
                     <p class="text-sm">Email: mickyalonge@gmail.com</p>
-                    <p class="text-sm">Portfolio: <a href="https://folio-two-blush.vercel.app/" class="hover:underline">https://folio-two-blush.vercel.app/</a></p>
+                    <p class="text-sm break-all">Portfolio: <a href="https://folio-two-blush.vercel.app/"
+                            class="hover:text-gold transition">folio-two-blush.vercel.app</a></p>
                     <div class="flex space-x-4 mt-4">
-                        <a href="#" class="text-2xl hover:text-primary-gold transition">🐦</a>
-                        <a href="#" class="text-2xl hover:text-primary-gold transition">📘</a>
-                        <a href="#" class="text-2xl hover:text-primary-gold transition">📸</a>
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="twitter" class="w-6 h-6"></i>
+                        </a>
+                        <a href="#"
+                            class="p-2 rounded-full hover:bg-white/10 transition">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -676,18 +834,33 @@
     <script>
         AOS.init({
             duration: 800,
-            once: false, 
-            mirror: true 
+            once: false,
+            mirror: true
         });
     </script>
     <script>
-      lucide.createIcons();
+        lucide.createIcons();
       document
         .querySelector(".hamburger")
         .addEventListener("click", function () {
           this.classList.toggle("open");
-          document.querySelector(".mobile-menu").classList.toggle("hidden");
+          document.querySelector(".mobile-menu").classList.toggle("active");
         });
     </script>
-  </body>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "UbiquePOS",
+      "url": "https://yourdomain.com",
+      "logo": "https://yourdomain.com/asset/logo.png",
+      "foundingDate": "2025",
+      "founder": {
+        "@type": "Person",
+        "name": "Alonge OluwaKorede Matthias",
+        "jobTitle": "Founder & Full-Stack Developer"
+      }
+    }
+    </script>
+</body>
 </html>
